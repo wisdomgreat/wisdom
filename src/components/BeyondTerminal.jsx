@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Terminal, ChevronRight } from 'lucide-react';
+import { CheckCircle2, Terminal, ChevronRight } from 'lucide-react';
 import { BEYOND_TERMINAL_ITEMS } from '../data/portfolioData';
 
 export default function BeyondTerminal({ onOpenTerminal }) {
@@ -81,7 +81,7 @@ export default function BeyondTerminal({ onOpenTerminal }) {
                     key={i}
                     className="p-3 rounded-[var(--radius-card)] border border-[var(--color-rule)] bg-[var(--color-paper)] text-sm text-[var(--color-ink-2)] flex items-start gap-2.5"
                   >
-                    <Sparkles className="w-4 h-4 text-[var(--color-accent)] shrink-0 mt-0.5" aria-hidden="true" />
+                    <CheckCircle2 className="w-4 h-4 text-[var(--color-accent)] shrink-0 mt-0.5" aria-hidden="true" />
                     <span className="leading-relaxed">{detail}</span>
                   </div>
                 ))}
