@@ -13,7 +13,7 @@ export default function TerminalModal({ isOpen, onClose, onOpenResume }) {
     },
     {
       type: 'system',
-      text: 'Location: Bradford West Gwillimbury, Simcoe County, ON. Type "help" or click a command below.'
+      text: 'Location: Greater Toronto Area, Ontario. Type "help" or click a command below.'
     }
   ]);
 
@@ -49,7 +49,7 @@ export default function TerminalModal({ isOpen, onClose, onOpenResume }) {
   skills     -> Core GRC, Cloud Infrastructure and Full-Stack AI toolchain
   projects   -> List live production platforms and validated builds
   homelab    -> Inspect Proxmox VE, SCCM and Cloudflare Zero Trust topology
-  garden     -> [Easter Egg] Bradford agronomy and Kratky hydroponics status
+  garden     -> [Easter Egg] AgTech, Kratky hydroponics and soil science status
   contact    -> Display direct TDWAS Technologies dispatch channels
   resume     -> Open printable Executive Capability Statement and Resume
   ping       -> Ping the Cloudflare Zero Trust gateway and Proxmox cluster
@@ -64,7 +64,7 @@ export default function TerminalModal({ isOpen, onClose, onOpenResume }) {
 Role: Principal Consultant at TDWAS Technologies (tdwas.com)
 Specializations: Cybersecurity & GRC, Hybrid Cloud & Proxmox Systems, Full-Stack AI Builder
 Track Record: 7+ Years in Risk Operations (KYC/AML/Sanctions), Former Lead Programming Instructor at Correlation One, Handshake AI Fellow, Half Baked START Founder.
-Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, Barrie, Newmarket, Mississauga and Etobicoke).`
+Base of Operations: Greater Toronto Area (GTA), Ontario, Canada (Available for on-site & remote engagements).`
         });
         break;
 
@@ -83,7 +83,7 @@ Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, B
           text: `LIVE PLATFORMS & TECHNICAL BUILDS:
   - TDWAS Technologies (tdwas.com): IT, Cloud and GRC Consultancy
   - BWG Life (bwglife.ca) and Simcoe Connect (simcoeconnect.ca): Hyperlocal Directories
-  - BradfordFarmer: Simcoe County AgTech, Grants and CRA T2042 Tax Suite
+  - BradfordFarmer: Ontario AgTech, Grants and CRA T2042 Tax Suite
   - IleOja (ileoja.ca) and MyTechRodeo (mytechrodeo.com): Marketplace and Tech Insights
   - Neon Breach: Validated Handshake AI Cybersecurity Telemetry Project
   - KiddoChecker: Azure Cloud Child Security and SMS Attendance System
@@ -97,7 +97,7 @@ Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, B
       case 'homelab':
         newEntries.push({
           type: 'output',
-          text: `BRADFORD HYBRID HOME LAB TELEMETRY:
+          text: `HYBRID LAB & CLUSTERING TELEMETRY:
   [EDGE]    Cloudflare Zero Trust Tunnels -> TLS 1.3 Strict (No Exposed Inbound Ports)
   [NODE 01] Proxmox VE Bare-Metal Cluster -> KVM + LXC Containers (ZFS Healthy)
   [NODE 02] Windows Server + SCCM Lab     -> Active Directory & Endpoint Compliance
@@ -109,8 +109,8 @@ Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, B
       case 'garden':
         newEntries.push({
           type: 'highlight',
-          text: `BRADFORD BACKYARD AGRONOMY & KRATKY HYDROPONICS TELEMETRY:
-  Location: Bradford West Gwillimbury, ON (Zone 5b)
+          text: `AGTECH & SOIL SCIENCE TELEMETRY:
+  Location: Southern Ontario (Zone 5b)
   Soil & Container Crops: Sweet Corn, Heirloom Tomatoes, Yams, Peppers, Potted Apples
   Hydroponic Rig: DIY Passive Kratky Method (Zero-pump nutrient reservoirs, optimal EC/pH)
   Creative Audio/Video: Official Creator on Pocket FM; 4K Production on Panasonic HC-X1500`
@@ -136,7 +136,7 @@ Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, B
   Web Portal  : https://tdwas.com
   Email       : consult@tdwas.com
   Ecosystem   : bwglife.ca, simcoeconnect.ca, ileoja.ca, mytechrodeo.com
-  Service Area: Bradford West Gwillimbury, Simcoe County, Barrie, Newmarket, Mississauga, Etobicoke and Toronto
+  Service Area: Greater Toronto Area, Ontario & Global Remote
   Action      : Scroll down to the Consultation Builder to dispatch a formatted project brief.`
         });
         break;

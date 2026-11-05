@@ -70,12 +70,12 @@ export const PROJECTS_DATA = [
     badge: 'Flagship Consultancy',
     coords: { x: 50, y: 50 },
     description:
-      'Principal IT consulting, Managed Services, and Cybersecurity/GRC advisory firm serving Simcoe County and the Greater Toronto Area with hybrid cloud, security governance, and custom AI automation.',
+      'Principal IT consulting, Managed Services, and Cybersecurity/GRC advisory firm serving the Greater Toronto Area and Ontario enterprise clients with hybrid cloud, security governance, and custom AI automation.',
     architecture: ['React', 'Tailwind CSS', 'Cloudflare Zero Trust', 'Enterprise GRC', 'Managed IT'],
     highlights: [
       'Full-spectrum IT governance, risk advisory, and managed infrastructure support',
       'Custom workflow automation & AI integration for SMB and enterprise clients',
-      'Regional coverage across Bradford, Barrie, Newmarket, Mississauga, and Toronto'
+      'Regional coverage across the Greater Toronto Area, Mississauga, Toronto, and Ontario'
     ]
   },
   {
@@ -90,12 +90,12 @@ export const PROJECTS_DATA = [
     badge: 'Hyperlocal Civic Tech',
     coords: { x: 440, y: 50 },
     description:
-      'Dual hyperlocal community directories and civic/business discovery platforms engineered for Bradford West Gwillimbury and Simcoe County, deeply optimized with Google Search Console telemetry.',
+      'Dual community directories and regional civic/business discovery platforms, deeply optimized with Google Search Console telemetry.',
     architecture: ['React', 'Supabase', 'SEO Telemetry', 'Google Search Console', 'Responsive UI'],
     highlights: [
       'High-visibility local business indexing and community event aggregation',
       'Search-engine optimized architecture driving organic regional discovery',
-      'Unified multi-tenant data workflows serving Simcoe County municipalities'
+      'Unified multi-tenant data workflows serving regional municipal hubs'
     ]
   },
   {
@@ -106,15 +106,15 @@ export const PROJECTS_DATA = [
     category: 'FinTech & LegalTech',
     featured: true,
     status: 'Production Platform',
-    badge: 'Simcoe AgTech',
+    badge: 'Ontario AgTech',
     coords: { x: 830, y: 50 },
     description:
-      'Specialized agricultural compliance and operations platform built for Simcoe County & Holland Marsh farmers to automate administrative paperwork, government grant matching, and CRA T2042 farm tax compliance.',
+      'Specialized agricultural compliance and operations platform built for Ontario farmers and agricultural operators to automate administrative paperwork, government grant matching, and CRA T2042 farm tax compliance.',
     architecture: ['React', 'TypeScript', 'CRA T2042 Engine', 'Grant Matching AI', 'Supabase'],
     highlights: [
       'Automated categorization mapped directly to Canada Revenue Agency T2042 line items',
       'Intelligent eligibility matching for provincial and federal agricultural grants',
-      'Built with field-first usability for busy farm operators in Bradford West Gwillimbury'
+      'Built with field-first usability for busy agricultural operators and farm owners'
     ]
   },
   {
@@ -253,6 +253,20 @@ export const PROJECTS_DATA = [
   }
 ];
 
+export const CANVAS_LAYOUT = {
+  tdwas:          { x: 60,   y: 70,  w: 520, kind: 'Website',  image: '/work/tdwas.jpg' },
+  bwglife:        { x: 640,  y: 40,  w: 360, kind: 'Platform', image: '/work/bwglife.jpg' },
+  simcoe:         { x: 1060, y: 110, w: 460, kind: 'Platform', image: '/work/simcoeconnect.jpg', alias: 'bwglife', title: 'Simcoe Connect' },
+  neonbreach:     { x: 90,   y: 520, w: 330, kind: 'Simulation', tone: 'night' },
+  bradfordfarmer: { x: 480,  y: 470, w: 400, kind: 'Platform', tone: 'sheet' },
+  ileoja:         { x: 940,  y: 500, w: 440, kind: 'Website',  image: '/work/ileoja.jpg' },
+  jobautomation:  { x: 1440, y: 470, w: 280, kind: 'Pipeline', tone: 'night' },
+  kiddochecker:   { x: 200,  y: 860, w: 300, kind: 'Cloud app', tone: 'sheet' },
+  loangenerator:  { x: 560,  y: 820, w: 340, kind: 'Utility',  tone: 'night' },
+  cryptobot:      { x: 960,  y: 880, w: 300, kind: 'Daemon',   tone: 'sheet' },
+  studiorecorder: { x: 1320, y: 800, w: 330, kind: 'Tool',     tone: 'night' }
+};
+
 export const ADVISORY_SCOPES = [
   {
     id: 'grc-audit',
@@ -329,7 +343,7 @@ export const HOMELAB_NODES = [
     latency: '0.4ms',
     ports: 'VLAN 20 Segregated',
     description:
-      'The backbone of the Bradford home lab. Hosts isolated virtual machines and lightweight Linux containers for security testing, staging environments, and continuous telemetry workloads.',
+      'The backbone of the hybrid virtualization lab. Hosts isolated virtual machines and lightweight Linux containers for security testing, staging environments, and continuous telemetry workloads.',
     services: [
       'KVM Full Virtualization',
       'LXC Micro-Containers',
@@ -437,10 +451,10 @@ export const EXPERIENCE_TIMELINE = [
     period: 'Present',
     role: 'Founder & Principal Technology / GRC Consultant',
     organization: 'TDWAS Technologies (tdwas.com)',
-    location: 'Bradford West Gwillimbury & Greater Toronto Area, ON',
+    location: 'Greater Toronto Area, ON',
     type: 'Executive & Advisory',
     highlights: [
-      'Lead end-to-end cybersecurity governance, IT infrastructure modernization, and custom AI automation engagements for regional SMBs and enterprise clients across Simcoe County and the GTA.',
+      'Lead end-to-end cybersecurity governance, IT infrastructure modernization, and custom AI automation engagements for SMBs and enterprise clients across the Greater Toronto Area and Ontario.',
       'Architected and launched a portfolio of 10+ production web platforms and tools including BWG Life, Simcoe Connect, BradfordFarmer, KiddoChecker, and IleOja.',
       'Design hybrid cloud and Zero Trust environments leveraging AWS, Azure, Proxmox VE, Windows SCCM, and Cloudflare Tunnels.'
     ]
@@ -494,15 +508,15 @@ export const EXPERIENCE_TIMELINE = [
 export const BEYOND_TERMINAL_ITEMS = [
   {
     id: 'garden',
-    title: 'Bradford Backyard Agronomy & Kratky Hydroponics',
+    title: 'High-Yield Agronomy & Kratky Hydroponics',
     badge: 'Bio-Systems & Self-Reliance',
     icon: Sprout,
     summary:
-      'Applying systems engineering to soil and water in Bradford West Gwillimbury. Cultivating a high-yield seasonal vegetable plot alongside passive, non-circulating DIY Kratky hydroponics rigs.',
+      'Applying systems engineering to soil and water in Southern Ontario. Cultivating a high-yield seasonal vegetable plot alongside passive, non-circulating DIY Kratky hydroponics rigs.',
     details: [
       'Active Crops: Sweet corn, heirloom & Roma tomatoes, yams, bell & hot peppers, and containerized potted apple trees.',
       'Kratky Method Engineering: Nutrient-calibrated passive hydroponic reservoirs designed for zero-pump energy efficiency and rapid foliar growth.',
-      'Direct inspiration behind building the BradfordFarmer AgTech platform for Simcoe County growers.'
+      'Direct inspiration behind building the BradfordFarmer AgTech platform for Ontario growers.'
     ]
   },
   {
@@ -526,7 +540,7 @@ export const BEYOND_TERMINAL_ITEMS = [
       'Capturing crisp 4K 60p broadcast video, community stories, and technical breakdowns using a dedicated Panasonic HC-X1500 professional camcorder setup.',
     details: [
       'Full manual optical control, dual SD relay recording, and multi-channel XLR/PCM audio capture.',
-      'Used for regional storytelling across Simcoe County and technical educational modules.'
+      'Used for regional storytelling and technical educational modules.'
     ]
   },
   {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUp, Terminal, FileText } from 'lucide-react';
+import Selection from './Selection';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -9,66 +10,119 @@ export default function Footer({ onOpenTerminal, onOpenResume }) {
   };
 
   return (
-    <footer className="relative z-10 border-t border-[var(--color-rule)] bg-[var(--color-paper-deep)] py-12 text-[var(--color-muted)]">
-      <div className="container space-y-8">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-[var(--color-ink)] font-bold text-base">
-              <span className="w-2 h-2 rounded-full bg-[var(--color-accent)]" />
-              <span>Wisdom Ikhuoria Salami / TDWAS Technologies</span>
-            </div>
-            <p className="text-xs text-[var(--color-muted)] max-w-xl leading-relaxed">
-              Principal Cybersecurity and GRC Consultant, Hybrid Cloud Systems Architect, and Full-Stack AI Builder.
-              Headquartered in Bradford West Gwillimbury, Simcoe County, Ontario.
+    <footer className="band-night border-t border-[var(--color-night-2)] py-16 text-[var(--color-night-muted)]">
+      <div className="container space-y-12">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-10">
+          {/* Brand & Contact */}
+          <div className="space-y-4 max-w-md">
+            <Selection className="inline-block px-2 py-0.5">
+              <span className="text-[1.25rem] font-medium tracking-[-0.04em] text-[var(--color-night-ink)]">
+                wisdom salami
+              </span>
+            </Selection>
+
+            <p className="flex items-center gap-2.5 text-xs text-[var(--color-night-muted)]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
+              <span>Available for enterprise advisory across Greater Toronto Area & remote</span>
             </p>
-            <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[var(--color-cool)] pt-1 font-mono">
-              {['tdwas.com', 'bwglife.ca', 'simcoeconnect.ca', 'ileoja.ca', 'mytechrodeo.com'].map((domain) => (
-                <a
-                  key={domain}
-                  href={`https://${domain}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline underline-offset-4"
-                >
-                  {domain}
-                </a>
-              ))}
-            </div>
+
+            <a
+              href="mailto:consult@tdwas.com"
+              className="inline-block text-sm text-[var(--color-night-ink)] hover:text-[var(--color-accent)] no-underline transition-colors duration-150"
+            >
+              consult@tdwas.com
+            </a>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2.5">
-            <button
-              onClick={onOpenTerminal}
-              className="px-3.5 py-2 rounded-[var(--radius-pill)] text-xs font-mono bg-[var(--color-paper-2)] text-[var(--color-cool)] border border-[var(--color-rule)] hover:border-[var(--color-cool)] transition-colors duration-150 flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
-            >
-              <Terminal className="w-3.5 h-3.5" aria-hidden="true" />
-              <span>Shell (Ctrl+K)</span>
-            </button>
-            <button
-              onClick={onOpenResume}
-              className="px-3.5 py-2 rounded-[var(--radius-pill)] text-xs bg-[var(--color-accent-soft)] text-[var(--color-accent)] border border-[var(--color-rule)] hover:border-[var(--color-accent)] transition-colors duration-150 flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
-            >
-              <FileText className="w-3.5 h-3.5" aria-hidden="true" />
-              <span>Capability brief</span>
-            </button>
-            <button
-              onClick={scrollToTop}
-              className="p-2 rounded-[var(--radius-pill)] text-[var(--color-muted)] hover:text-[var(--color-ink)] bg-[var(--color-paper-2)] border border-[var(--color-rule)] hover:border-[var(--color-rule-2)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
-              title="Scroll to top"
-              aria-label="Scroll to top"
-            >
-              <ArrowUp className="w-4 h-4" aria-hidden="true" />
-            </button>
+          {/* Navigation & Elsewhere Columns */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 text-xs">
+            <div className="space-y-3">
+              <span className="text-[var(--color-night-muted)] text-xs font-medium">
+                Navigation
+              </span>
+              <ul className="space-y-2">
+                <li>
+                  <a href="#projects" className="text-[var(--color-night-ink)] hover:text-[var(--color-accent)] no-underline transition-colors duration-150">
+                    Work
+                  </a>
+                </li>
+                <li>
+                  <a href="#advisory" className="text-[var(--color-night-ink)] hover:text-[var(--color-accent)] no-underline transition-colors duration-150">
+                    Services
+                  </a>
+                </li>
+                <li>
+                  <a href="#homelab" className="text-[var(--color-night-ink)] hover:text-[var(--color-accent)] no-underline transition-colors duration-150">
+                    Hybrid Lab
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="text-[var(--color-night-ink)] hover:text-[var(--color-accent)] no-underline transition-colors duration-150">
+                    Say hello
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-3">
+              <span className="text-[var(--color-night-muted)] text-xs font-medium">
+                Platforms
+              </span>
+              <ul className="space-y-2 font-mono text-[11px]">
+                {['tdwas.com', 'bwglife.ca', 'simcoeconnect.ca', 'ileoja.ca'].map((domain) => (
+                  <li key={domain}>
+                    <a
+                      href={`https://${domain}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[var(--color-night-muted)] hover:text-[var(--color-night-ink)] no-underline transition-colors duration-150"
+                    >
+                      {domain}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-3 col-span-2 sm:col-span-1">
+              <span className="text-[var(--color-night-muted)] text-xs font-medium">
+                Tools
+              </span>
+              <div className="flex flex-col gap-2">
+                <button
+                  type="button"
+                  onClick={onOpenTerminal}
+                  className="inline-flex items-center gap-1.5 text-xs text-[var(--color-night-ink)] hover:text-[var(--color-accent)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
+                >
+                  <Terminal className="w-3.5 h-3.5 text-[var(--color-accent)]" aria-hidden="true" />
+                  <span>Shell (Ctrl+K)</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={onOpenResume}
+                  className="inline-flex items-center gap-1.5 text-xs text-[var(--color-night-ink)] hover:text-[var(--color-accent)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
+                >
+                  <FileText className="w-3.5 h-3.5 text-[var(--color-accent)]" aria-hidden="true" />
+                  <span>Capability statement</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="pt-6 border-t border-[var(--color-rule)] flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--color-muted)] gap-2">
+        {/* Bottom bar */}
+        <div className="pt-8 border-t border-[var(--color-night-2)] flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--color-night-muted)] gap-4">
           <div>
-            © {CURRENT_YEAR} TDWAS Technologies. Engineered with React, Vite and Tailwind CSS.
+            © {CURRENT_YEAR} Wisdom Ikhuoria Salami / TDWAS Technologies. Greater Toronto Area, Ontario.
           </div>
-          <div>
-            Bradford West Gwillimbury, Simcoe County, Ontario
-          </div>
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="flex items-center gap-1.5 text-xs text-[var(--color-night-muted)] hover:text-[var(--color-night-ink)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
+          >
+            <span>Back to top</span>
+            <ArrowUp className="w-3.5 h-3.5" aria-hidden="true" />
+          </button>
         </div>
       </div>
     </footer>

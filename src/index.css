@@ -1,7 +1,7 @@
-/* Hallmark · shape: settled · genre: modern-minimal · theme: custom · redesign: full · job: book · idea: "Principal GRC, hybrid infrastructure, and full-stack AI consultancy portfolio for Wisdom Ikhuoria Salami." · vibe: "graphite hairline telemetry precision restrained executive"
- * paper: oklch(14.5% 0.008 240) · accent: oklch(78% 0.16 150) · display: Plus Jakarta Sans · body: Plus Jakarta Sans · hero: Settled · nav: Bar · footer: Bar · imagery: none · signature: Telemetry Console
- * axes: dark/grotesk-sans/chromatic-green · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 · weakest: V, tightened to strict hairline console architecture */
+/* Hallmark · shape: canvas portfolio · genre: editorial · theme: custom (after ilse-moreno.framer.website, by request) · redesign: full · job: hire · idea: "Principal GRC, hybrid infrastructure, and full-stack AI consultancy portfolio for Wisdom Ikhuoria Salami." · vibe: "bone paper design-tool selection frames violet precise"
+ * paper: oklch(95.6% 0.003 106) · accent: oklch(51% 0.25 283) · display: Spline Sans · body: Spline Sans · label: Spline Sans Mono · hero: Selection frames · nav: Bar · footer: Night band · imagery: real screenshots of tdwas.com, bwglife.ca, simcoeconnect.ca, ileoja.ca · signature: Systems canvas
+ * axes: light/grotesk-sans/chromatic-violet · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V5 · weakest: E, the portrait slot waits on a real photograph */
 
 @import "tailwindcss";
 @import "./tokens.css";
@@ -19,9 +19,81 @@ button, a {
     color: var(--color-ink);
   }
 
+  h1, h2, h3, h4 {
+    letter-spacing: var(--tracking-display);
+    font-weight: 500;
+  }
+
   code, kbd, samp, pre {
     font-family: var(--font-outlier);
   }
+}
+
+/* Dotted design-canvas paper */
+.dots {
+  background-color: var(--color-paper);
+  background-image: radial-gradient(var(--color-dot) 1px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+/* Section bands: bone and sheet alternate down the page */
+.band { padding-block: var(--section-gap-s); }
+.band-sheet { background: var(--color-paper-2); }
+.band-bone { background: var(--color-paper); }
+.band-night { background: var(--color-night); color: var(--color-night-ink); }
+
+/* The selection frame: what a design tool draws around the thing you picked */
+.sel { position: relative; outline: 1px solid var(--color-accent); outline-offset: 0; }
+.sel-handle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--color-paper-2);
+  border: 1px solid var(--color-accent);
+  pointer-events: none;
+  z-index: 2;
+}
+.sel-handle[data-c="tl"] { top: -4px; left: -4px; }
+.sel-handle[data-c="tr"] { top: -4px; right: -4px; }
+.sel-handle[data-c="bl"] { bottom: -4px; left: -4px; }
+.sel-handle[data-c="br"] { bottom: -4px; right: -4px; }
+.sel-tag {
+  position: absolute;
+  left: -1px;
+  bottom: 100%;
+  padding: var(--space-3xs) var(--space-xs);
+  font-family: var(--font-outlier);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  font-weight: 500;
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  border-radius: 3px 3px 0 0;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* Canvas frames: the label is grey until the frame is picked */
+.wc-frame { outline: none; }
+.wc-frame .wc-label {
+  color: var(--color-muted);
+  border-radius: 4px 4px 0 0;
+  transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+}
+.wc-frame .wc-box {
+  box-shadow: var(--shadow-card);
+}
+.wc-frame .wc-img { transition: transform 350ms var(--ease-out); }
+.wc-frame:hover .wc-label,
+.wc-frame:focus-visible .wc-label {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+.wc-frame:hover .wc-box,
+.wc-frame:focus-visible .wc-box { box-shadow: 0 0 0 1.5px var(--color-accent); }
+.wc-frame:hover .wc-img { transform: scale(1.03); }
+@media (prefers-reduced-motion: reduce) {
+  .wc-frame:hover .wc-img { transform: none; }
 }
 
 /* Custom scrollbars matching theme tokens */
@@ -30,7 +102,7 @@ button, a {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-paper-deep);
+  background: var(--color-paper);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-rule-2);

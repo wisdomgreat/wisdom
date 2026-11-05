@@ -10,7 +10,7 @@ export default function BeyondTerminal({ onOpenTerminal }) {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[var(--color-rule)] pb-4">
         <div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-ink)]">
-            Life in Bradford West Gwillimbury
+            Beyond the Terminal
           </h2>
           <p className="text-sm text-[var(--color-muted)] mt-1">
             Backyard agronomy, Kratky hydroponics, audio storytelling, 4K video and automotive diagnostics.
@@ -86,7 +86,7 @@ export default function BeyondTerminal({ onOpenTerminal }) {
             </div>
 
             <div className="mt-6 pt-4 border-t border-[var(--color-rule)] flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--color-muted)]">
-              <span>Bradford West Gwillimbury, Ontario</span>
+              <span>Ontario, Canada</span>
               <button
                 onClick={onOpenTerminal}
                 className="text-[var(--color-cool)] hover:underline flex items-center gap-1 font-mono whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] active:opacity-80 disabled:opacity-50"

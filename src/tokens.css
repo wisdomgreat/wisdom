@@ -16,43 +16,50 @@
   --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
-  --color-error: oklch(62% 0.18 25);
-  --color-success: oklch(72% 0.16 150);
+  --color-error: oklch(55% 0.2 25);
+  --color-success: oklch(52% 0.13 150);
 
-  --color-paper: oklch(14.5% 0.008 240);
-  --color-paper-2: oklch(18.5% 0.010 240);
-  --color-paper-3: oklch(23% 0.012 240);
-  --color-paper-deep: oklch(11% 0.006 240);
+  /* bone paper, near-white sheets, a tool-selection violet */
+  --color-paper: oklch(95.6% 0.003 106);
+  --color-paper-2: oklch(99.4% 0.002 106);
+  --color-paper-3: oklch(92.5% 0.004 106);
+  --color-paper-deep: oklch(93.8% 0.004 106);
 
-  --color-print-paper: oklch(98% 0.005 240);
-  --color-print-ink: oklch(20% 0.01 240);
+  --color-print-paper: oklch(99% 0.002 106);
+  --color-print-ink: oklch(18.5% 0.002 106);
 
-  --color-ink: oklch(96% 0.008 240);
-  --color-ink-2: oklch(86% 0.012 240);
-  --color-muted: oklch(68% 0.015 240);
+  --color-ink: oklch(18.5% 0.002 106);
+  --color-ink-2: oklch(30% 0.003 106);
+  --color-muted: oklch(50% 0.006 106);
 
-  --color-rule: oklch(28% 0.012 240);
-  --color-rule-2: oklch(38% 0.015 240);
+  --color-rule: oklch(90.5% 0.004 106);
+  --color-rule-2: oklch(84% 0.005 106);
+  --color-dot: oklch(83% 0.005 106);
 
-  --color-accent: oklch(78% 0.16 150);
-  --color-accent-ink: oklch(14% 0.02 150);
-  --color-accent-soft: oklch(25% 0.04 150);
-  --color-focus: oklch(78% 0.16 150);
+  --color-accent: oklch(51% 0.25 283);
+  --color-accent-ink: oklch(99% 0.006 283);
+  --color-accent-soft: oklch(94.5% 0.03 283);
+  --color-focus: oklch(51% 0.25 283);
 
-  --color-cool: oklch(76% 0.12 225);
-  --color-cool-soft: oklch(25% 0.04 225);
+  --color-cool: oklch(45% 0.19 283);
+  --color-cool-soft: oklch(95.5% 0.02 283);
 
-  --color-amber: oklch(78% 0.14 75);
-  --color-amber-soft: oklch(26% 0.04 75);
+  --color-amber: oklch(52% 0.12 70);
+  --color-amber-soft: oklch(95% 0.04 85);
 
-  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "JetBrains Mono", ui-monospace, monospace;
+  --color-night: oklch(17% 0.002 106);
+  --color-night-2: oklch(26% 0.003 106);
+  --color-night-ink: oklch(96% 0.003 106);
+  --color-night-muted: oklch(70% 0.004 106);
+
+  --font-display: "Spline Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Spline Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: "Spline Sans Mono", ui-monospace, monospace;
 
   --radius-card: 10px;
   --radius-pill: 6px;
-  --shadow-card: none;
-  --tracking-display: -0.025em;
+  --shadow-card: 0 1px 2px oklch(18.5% 0.002 106 / 0.06);
+  --tracking-display: -0.035em;
 }
 
 :root {

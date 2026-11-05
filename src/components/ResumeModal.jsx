@@ -51,7 +51,7 @@ export default function ResumeModal({ isOpen, onClose }) {
             <div className="text-xs text-[var(--color-muted)] space-y-1 md:text-right">
               <div className="flex items-center md:justify-end gap-1.5">
                 <MapPin className="w-3 h-3 text-[var(--color-cool)]" aria-hidden="true" />
-                <span>Bradford West Gwillimbury, Ontario</span>
+                <span>Greater Toronto Area, Ontario, Canada</span>
               </div>
               <div className="flex items-center md:justify-end gap-1.5 font-mono">
                 <Globe className="w-3 h-3 text-[var(--color-accent)]" aria-hidden="true" />

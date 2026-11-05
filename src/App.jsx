@@ -47,17 +47,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-[var(--color-accent-ink)]">
-      {/* Structural subtle sheet grid */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0 opacity-20"
-        style={{
-          backgroundImage:
-            'linear-gradient(to right, var(--color-rule) 1px, transparent 1px), linear-gradient(to bottom, var(--color-rule) 1px, transparent 1px)',
-          backgroundSize: '48px 48px'
-        }}
-      />
-
+    <div className="min-h-screen bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-[var(--color-accent-ink)] dots">
       {/* Header with status bar */}
       <Header
         onOpenTerminal={() => setTerminalOpen(true)}
