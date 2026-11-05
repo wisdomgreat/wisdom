@@ -80,22 +80,42 @@ export const PROJECTS_DATA = [
   },
   {
     id: 'bwglife',
-    title: 'BWG Life & Simcoe Connect',
-    headline: 'Unifying municipal merchant discovery with automated SEO telemetry.',
-    domain: 'bwglife.ca / simcoeconnect.ca',
+    title: 'BWG Life',
+    headline: 'Hyperlocal daily briefing, transit schedules, and community hub with SEO telemetry.',
+    domain: 'bwglife.ca',
     url: 'https://bwglife.ca',
     category: 'Platforms & SaaS',
     featured: true,
-    status: 'Live Regional Ecosystem',
+    status: 'Live Community Hub',
     badge: 'Hyperlocal Civic Tech',
     coords: { x: 440, y: 50 },
     description:
-      'Dual community directories and regional civic/business discovery platforms, deeply optimized with Google Search Console telemetry.',
-    architecture: ['React', 'Supabase', 'SEO Telemetry', 'Google Search Console', 'Responsive UI'],
+      'Hyperlocal community publication and civic discovery hub delivering daily local news, municipal transit telemetry, and business indexing, optimized with automated Google Search Console reporting.',
+    architecture: ['React', 'Supabase', 'Transit Telemetry', 'SEO Engine', 'Responsive UI'],
     highlights: [
-      'High-visibility local business indexing and community event aggregation',
-      'Search-engine optimized architecture driving organic regional discovery',
-      'Unified multi-tenant data workflows serving regional municipal hubs'
+      'Daily regional news, GO train commuter schedules, and municipal event aggregation',
+      'Automated Google Search Console telemetry driving organic search authority',
+      'Dedicated local business directory and certified municipal election reporting'
+    ]
+  },
+  {
+    id: 'simcoeconnect',
+    title: 'Simcoe Connect',
+    headline: 'County-wide community platform connecting residents, local events, and regional businesses.',
+    domain: 'simcoeconnect.ca',
+    url: 'https://simcoeconnect.ca',
+    category: 'Platforms & SaaS',
+    featured: true,
+    status: 'Live Regional Platform',
+    badge: 'Regional Civic Tech',
+    coords: { x: 1060, y: 110 },
+    description:
+      'Unified multi-tenant civic engagement and regional discovery platform connecting residents, local deals, job postings, and transit information across regional hubs.',
+    architecture: ['React', 'Supabase', 'Multi-Tenant DB', 'Event Aggregator', 'Tailwind CSS'],
+    highlights: [
+      'Multi-tenant community directory aggregating local businesses, jobs, and regional deals',
+      'Interactive event discovery, location-aware filters, and user engagement metrics',
+      'High-availability cloud architecture engineered for regional scalability'
     ]
   },
   {
@@ -316,8 +336,8 @@ export const PROJECTS_DATA = [
 
 export const CANVAS_LAYOUT = {
   tdwas:          { x: 60,   y: 70,  w: 520, kind: 'Website',       image: '/work/tdwas.jpg' },
-  bwglife:        { x: 640,  y: 40,  w: 360, kind: 'Platform',      image: '/work/bwglife.jpg' },
-  simcoe:         { x: 1060, y: 110, w: 460, kind: 'Platform',      image: '/work/simcoeconnect.jpg', alias: 'bwglife', title: 'Simcoe Connect' },
+  bwglife:        { x: 640,  y: 40,  w: 360, kind: 'Community Hub', image: '/work/bwglife.jpg' },
+  simcoeconnect:  { x: 1060, y: 110, w: 460, kind: 'Civic Platform',image: '/work/simcoeconnect.jpg' },
   kindredchms:    { x: 1580, y: 70,  w: 480, kind: 'Church Tech',   image: '/work/kindredchms.jpg' },
   sterrawealth:   { x: 60,   y: 500, w: 460, kind: 'Wealth Portal', image: '/work/sterrawealth.jpg' },
   kiddochecker:   { x: 570,  y: 480, w: 430, kind: 'Security Kiosk',image: '/work/gvakids.jpg', title: 'GVA Kids' },

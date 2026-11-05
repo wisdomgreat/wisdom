@@ -82,11 +82,15 @@ Base of Operations: Greater Toronto Area (GTA), Ontario, Canada (Available for o
           type: 'output',
           text: `LIVE PLATFORMS & TECHNICAL BUILDS:
   - TDWAS Technologies (tdwas.com): IT, Cloud and GRC Consultancy
-  - BWG Life (bwglife.ca) and Simcoe Connect (simcoeconnect.ca): Hyperlocal Directories
+  - BWG Life (bwglife.ca): Hyperlocal Community Briefing & Telemetry Hub
+  - Simcoe Connect (simcoeconnect.ca): Regional Multi-Tenant Civic Platform
+  - Kindred ChMS (kindredchms.com): Church Care Platform & WhatsApp Integration
+  - Sterra Wealth (sterrawealth.com): Independent Wealth Advisory & FinTech Portal
+  - KiddoChecker (kids.gvachurch.com): Azure Child Check-in Security Kiosk
+  - NYSA Connect (nysaconnect.ca): Civic Tech & Member Welfare Portal
+  - IleOja (ileoja.ca) and MyTechRodeo: Marketplace and Tech Insights
   - BradfordFarmer: Ontario AgTech, Grants and CRA T2042 Tax Suite
-  - IleOja (ileoja.ca) and MyTechRodeo (mytechrodeo.com): Marketplace and Tech Insights
   - Neon Breach: Validated Handshake AI Cybersecurity Telemetry Project
-  - KiddoChecker: Azure Cloud Child Security and SMS Attendance System
   - Web Audio & Canvas Studio Recorder: Dual-Channel VU and Screen Capture
   - Bybit Algorithmic Crypto Bot: Python and Telegram Telemetry Engine
   - Interest-Only Loan Generator: LegalTech Amortization and PDF Contract Suite
