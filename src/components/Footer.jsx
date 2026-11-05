@@ -26,12 +26,20 @@ export default function Footer({ onOpenTerminal, onOpenResume }) {
               <span>Available for enterprise advisory across Greater Toronto Area & remote</span>
             </p>
 
-            <a
-              href="mailto:consult@tdwas.com"
-              className="inline-block text-sm text-[var(--color-night-ink)] hover:text-[var(--color-accent)] no-underline transition-colors duration-150"
-            >
-              consult@tdwas.com
-            </a>
+            <div className="space-y-1">
+              <a
+                href="mailto:hello@tdwas.com"
+                className="block text-sm text-[var(--color-night-ink)] hover:text-[var(--color-accent)] no-underline transition-colors duration-150"
+              >
+                hello@tdwas.com
+              </a>
+              <a
+                href="mailto:wisdom.salami@tdwas.com"
+                className="block text-xs text-[var(--color-night-muted)] hover:text-[var(--color-accent)] no-underline transition-colors duration-150"
+              >
+                wisdom.salami@tdwas.com
+              </a>
+            </div>
           </div>
 
           {/* Navigation & Elsewhere Columns */}

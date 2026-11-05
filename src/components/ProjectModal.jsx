@@ -45,6 +45,26 @@ export default function ProjectModal({ project, onClose, onInquire }) {
 
           <p className="text-sm text-[var(--color-muted)] leading-relaxed">{project.description}</p>
 
+          {project.tasksDone && project.tasksDone.length > 0 && (
+            <div className="space-y-2">
+              <div className="text-xs font-semibold text-[var(--color-ink)] flex items-center justify-between">
+                <span>Tasks Delivered & Verified Outcomes</span>
+                <span className="font-mono text-[11px] text-[var(--color-accent)]">Verified deliverables</span>
+              </div>
+              <div className="space-y-1.5">
+                {project.tasksDone.map((task, i) => (
+                  <div
+                    key={i}
+                    className="p-3 rounded-[var(--radius-card)] bg-[var(--color-paper-3)] border border-[var(--color-rule)] text-xs text-[var(--color-ink)] flex items-start gap-2.5 shadow-[var(--shadow-card)]"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-[var(--color-accent)] shrink-0 mt-0.5" aria-hidden="true" />
+                    <span className="leading-relaxed font-medium">{task}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="space-y-2">
             <div className="text-xs font-semibold text-[var(--color-muted)]">
               Key architectural and operational capabilities

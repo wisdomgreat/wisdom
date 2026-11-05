@@ -68,6 +68,25 @@ export default function Hero({ onScrollTo }) {
                   See the work
                 </button>
               </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-[var(--color-rule)]">
+                <div>
+                  <div className="text-[1.375rem] font-medium tracking-tight text-[var(--color-ink)]">14+</div>
+                  <div className="text-xs text-[var(--color-muted)]">Live platforms</div>
+                </div>
+                <div>
+                  <div className="text-[1.375rem] font-medium tracking-tight text-[var(--color-ink)]">7+ yrs</div>
+                  <div className="text-xs text-[var(--color-muted)]">GRC & risk ops</div>
+                </div>
+                <div>
+                  <div className="text-[1.375rem] font-medium tracking-tight text-[var(--color-ink)]">450+</div>
+                  <div className="text-xs text-[var(--color-muted)]">Weekly active kiosks</div>
+                </div>
+                <div>
+                  <div className="text-[1.375rem] font-medium tracking-tight text-[var(--color-ink)]">100%</div>
+                  <div className="text-xs text-[var(--color-muted)]">Audit pass record</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

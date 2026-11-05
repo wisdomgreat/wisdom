@@ -74,7 +74,7 @@ export default function ConsultationBuilder({ preselectedService }) {
   };
 
   const handleCopyEmail = () => {
-    navigator.clipboard?.writeText('consult@tdwas.com');
+    navigator.clipboard?.writeText('hello@tdwas.com');
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2500);
   };
@@ -118,18 +118,23 @@ Contact: ${contactForm.name || 'Anonymous'} (${contactForm.email || 'Pending ema
             </p>
           </div>
 
-          <div className="inline-flex items-center gap-1 p-1 pl-4 rounded-[var(--radius-pill)] border border-[var(--color-rule)] bg-[var(--color-paper-2)] shadow-[var(--shadow-card)]">
-            <a href="mailto:consult@tdwas.com" className="text-[0.9375rem] text-[var(--color-accent)] no-underline hover:underline pr-3">
-              consult@tdwas.com
-            </a>
-            <button
-              type="button"
-              onClick={handleCopyEmail}
-              className="h-9 px-3 rounded-[4px] text-[0.8125rem] font-medium bg-[var(--color-paper)] text-[var(--color-ink)] hover:text-[var(--color-accent)] flex items-center gap-1.5 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
-            >
-              {copiedEmail ? <Check className="w-3.5 h-3.5" aria-hidden="true" /> : <Copy className="w-3.5 h-3.5" aria-hidden="true" />}
-              <span>{copiedEmail ? 'Copied' : 'Copy'}</span>
-            </button>
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-1 p-1 pl-4 rounded-[var(--radius-pill)] border border-[var(--color-rule)] bg-[var(--color-paper-2)] shadow-[var(--shadow-card)]">
+              <a href="mailto:hello@tdwas.com" className="text-[0.9375rem] text-[var(--color-accent)] no-underline hover:underline pr-3">
+                hello@tdwas.com
+              </a>
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                className="h-9 px-3 rounded-[4px] text-[0.8125rem] font-medium bg-[var(--color-paper)] text-[var(--color-ink)] hover:text-[var(--color-accent)] flex items-center gap-1.5 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
+              >
+                {copiedEmail ? <Check className="w-3.5 h-3.5" aria-hidden="true" /> : <Copy className="w-3.5 h-3.5" aria-hidden="true" />}
+                <span>{copiedEmail ? 'Copied' : 'Copy'}</span>
+              </button>
+            </div>
+            <div className="text-xs text-[var(--color-muted)] pl-1">
+              Direct personal: <a href="mailto:wisdom.salami@tdwas.com" className="text-[var(--color-ink)] hover:text-[var(--color-accent)] underline decoration-[var(--color-rule-2)] underline-offset-4">wisdom.salami@tdwas.com</a>
+            </div>
           </div>
 
           <p className="flex items-center gap-3 text-[0.9375rem] text-[var(--color-ink-2)]">
@@ -171,7 +176,7 @@ Contact: ${contactForm.name || 'Anonymous'} (${contactForm.email || 'Pending ema
               </p>
               <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
                 <a
-                  href={`mailto:consult@tdwas.com?subject=TDWAS Inquiry: ${encodeURIComponent(
+                  href={`mailto:hello@tdwas.com?subject=TDWAS Inquiry: ${encodeURIComponent(
                     serviceType
                   )}&body=${encodeURIComponent(
                     `Hi Wisdom,\n\nInquiry regarding ${serviceType} for ${

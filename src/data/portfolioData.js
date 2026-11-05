@@ -72,6 +72,11 @@ export const PROJECTS_DATA = [
     description:
       'Principal IT consulting, Managed Services, and Cybersecurity/GRC advisory firm serving the Greater Toronto Area and Ontario enterprise clients with hybrid cloud, security governance, and custom AI automation.',
     architecture: ['React', 'Tailwind CSS', 'Cloudflare Zero Trust', 'Enterprise GRC', 'Managed IT'],
+    tasksDone: [
+      'Engineered automated sanctions evaluation engine cross-referencing PEP watchlists and OFAC/OSFI datasets',
+      'Deployed Cloudflare Zero Trust perimeter and secure client document exchange vault with RBAC',
+      'Maintained 100% audit pass rate for enterprise compliance clients undergoing regulatory GRC review'
+    ],
     highlights: [
       'Full-spectrum IT governance, risk advisory, and managed infrastructure support',
       'Custom workflow automation & AI integration for SMB and enterprise clients',
@@ -92,6 +97,11 @@ export const PROJECTS_DATA = [
     description:
       'Hyperlocal community publication and civic discovery hub delivering daily local news, municipal transit telemetry, and business indexing, optimized with automated Google Search Console reporting.',
     architecture: ['React', 'Supabase', 'Transit Telemetry', 'SEO Engine', 'Responsive UI'],
+    tasksDone: [
+      'Constructed automated civic feed syncing municipal alerts, council minutes, and GO Transit schedules',
+      'Engineered dynamic Google Search Console SEO telemetry capturing top organic regional search positions',
+      'Maintained 99.98% platform availability delivering over 12,000+ monthly page views on edge infrastructure'
+    ],
     highlights: [
       'Daily regional news, GO train commuter schedules, and municipal event aggregation',
       'Automated Google Search Console telemetry driving organic search authority',
@@ -112,6 +122,11 @@ export const PROJECTS_DATA = [
     description:
       'Unified multi-tenant civic engagement and regional discovery platform connecting residents, local deals, job postings, and transit information across regional hubs.',
     architecture: ['React', 'Supabase', 'Multi-Tenant DB', 'Event Aggregator', 'Tailwind CSS'],
+    tasksDone: [
+      'Architected multi-tenant regional database separating community hubs while sharing core services',
+      'Constructed location-aware deals, municipal notices, and employment aggregator for regional businesses',
+      'Engineered privacy-preserving civic discovery with zero third-party tracking scripts'
+    ],
     highlights: [
       'Multi-tenant community directory aggregating local businesses, jobs, and regional deals',
       'Interactive event discovery, location-aware filters, and user engagement metrics',
@@ -131,6 +146,11 @@ export const PROJECTS_DATA = [
     description:
       'Specialized agricultural compliance and operations platform built for Ontario farmers and agricultural operators to automate administrative paperwork, government grant matching, and CRA T2042 farm tax compliance.',
     architecture: ['React', 'TypeScript', 'CRA T2042 Engine', 'Grant Matching AI', 'Supabase'],
+    tasksDone: [
+      'Engineered CRA Form T2042 agricultural statement tax engine with automated schedule mapping',
+      'Built Canadian agricultural grant navigation algorithm matching farm profiles to funding rounds',
+      'Field-tested with Ontario growers for low-bandwidth mobile tractor-cab usability'
+    ],
     highlights: [
       'Automated categorization mapped directly to Canada Revenue Agency T2042 line items',
       'Intelligent eligibility matching for provincial and federal agricultural grants',
@@ -150,6 +170,11 @@ export const PROJECTS_DATA = [
     description:
       'Interactive cybersecurity defense and breach telemetry application built, audited, and officially approved within the Handshake AI Fellowship engineering program.',
     architecture: ['Interactive Canvas', 'Cyber Telemetry', 'React', 'State Machine', 'Handshake AI'],
+    tasksDone: [
+      'Constructed simulated SOC triage interface approved under Handshake AI Fellowship technical standards',
+      'Modeled intrusion detection, lateral movement, and incident remediation state machines',
+      'Validated under strict automated testing for zero state desynchronization'
+    ],
     highlights: [
       'Simulated intrusion detection, packet inspection, and threat mitigation mechanics',
       'Passed rigorous technical validation for code quality and interactive responsiveness',
@@ -170,6 +195,11 @@ export const PROJECTS_DATA = [
     description:
       'Cloud-deployed child check-in, guardian verification, and real-time attendance security platform integrated with Microsoft Azure Container Apps, Brother QL instant thermal printing, and SMS alerts.',
     architecture: ['Microsoft Azure', 'React', 'Thermal Printing', 'SMS Verification', 'RBAC'],
+    tasksDone: [
+      'Built high-speed Sunday morning QR/PIN child check-in and parent security badge printing',
+      'Constructed live classroom attendance rosters with emergency allergy flags and SMS alerts',
+      'Operating live every Sunday at GVA Church with 450+ weekly check-ins and zero failures'
+    ],
     highlights: [
       'Four-digit matching guardian claim codes and instant Brother QL thermal tag printing',
       'Real-time SMS guardian alerts and emergency allergy flags for volunteers',
@@ -190,6 +220,11 @@ export const PROJECTS_DATA = [
     description:
       'Specialized digital marketplace architecture (IleOja) paired with an independent technology analysis and modern engineering insights publication (MyTechRodeo).',
     architecture: ['Full-Stack Web', 'Content Engine', 'E-Commerce Flows', 'Cloud Hosting'],
+    tasksDone: [
+      'Engineered multi-vendor ethnic grocery e-commerce catalog with real-time SKU inventory',
+      'Constructed postal-code based delivery fee tiers and cold-chain route scheduling',
+      'Integrated Stripe webhook payment capture with automated inventory replenishment alerts'
+    ],
     highlights: [
       'Vendor onboarding, catalog discovery, and culturally tailored commerce workflows on IleOja',
       'Deep-dive technical commentary and AI/Cloud industry breakdowns on MyTechRodeo',
@@ -209,6 +244,11 @@ export const PROJECTS_DATA = [
     description:
       'Client-side screen and dual-channel audio recording suite featuring real-time Web Audio API VU meters, multi-source audio mixing, and standalone Windows desktop packaging.',
     architecture: ['Web Audio API', 'HTML5 Canvas', 'MediaRecorder API', 'Windows Desktop Wrapper'],
+    tasksDone: [
+      'Engineered zero-latency visual VU metering and dual-channel gain staging via Web Audio API',
+      'Built hardware-accelerated canvas compositing engine for 60fps desktop screen capture',
+      'Packaged standalone executable for Windows desktop audio storytelling production'
+    ],
     highlights: [
       'Zero-latency visual VU metering and gain staging for microphone + system audio',
       'Hardware-accelerated canvas compositing for crisp tutorial and broadcast capture',
@@ -228,6 +268,11 @@ export const PROJECTS_DATA = [
     description:
       'Python-driven automated market telemetry and execution engine integrated with Bybit derivatives/spot APIs, multi-timeframe technical indicators, and instant Telegram alert pipelines.',
     architecture: ['Python 3', 'Bybit REST/WebSocket API', 'Telegram Bot API', 'Linux Systemd', 'Quantitative TA'],
+    tasksDone: [
+      'Architected Python daemon ingesting real-time Bybit WebSocket streams and calculating multi-timeframe indicators',
+      'Engineered automated drawdown circuit breakers and position sizing algorithms with zero manual intervention',
+      'Pushed encrypted instant trade telemetry to operational Telegram alerting bots'
+    ],
     highlights: [
       'Real-time ingestion of candlestick streams and volatility/momentum indicator calculation',
       'Strict programmatic risk management, position sizing, and drawdown circuit breakers',
@@ -247,6 +292,11 @@ export const PROJECTS_DATA = [
     description:
       'Precision LegalTech and FinTech web application supporting customizable interest-only loan amortization schedules, automated late-fee/default calculations, and print-ready PDF legal export.',
     architecture: ['React', 'Financial Math Engine', 'Print/PDF CSS', 'Document Templating'],
+    tasksDone: [
+      'Constructed financial math engine calculating principal, interest-only tranches, balloon dates, and fees',
+      'Automated execution-ready legal document generation with real-time clause preview and PDF export',
+      'Enforced strict zero-server-retention privacy model for sensitive private lending agreements'
+    ],
     highlights: [
       'Dynamic calculation of principal, interest-only tranches, balloon dates, and fee structures',
       'Generates structured, execution-ready legal clauses with real-time clause preview',
@@ -266,6 +316,11 @@ export const PROJECTS_DATA = [
     description:
       'End-to-end autonomous pipeline orchestration combining Python toolchains, n8n webhook graphs, Browserbase cloud browsers, and LLM agents for intelligent outreach and workflow execution.',
     architecture: ['n8n', 'Browserbase', 'Python', 'Google AI Studio', 'Webhook Orchestration'],
+    tasksDone: [
+      'Orchestrated multi-step n8n webhook graphs integrating Browserbase cloud browsers and LLM reasoning nodes',
+      'Automated context-aware lead triage and application customization with intelligent failure retry queues',
+      'Engineered resilient webhook pipeline syncing outreach telemetry into central database sinks'
+    ],
     highlights: [
       'Headless browser automation resilient to complex DOM states via Browserbase',
       'Multi-step LLM reasoning nodes for context-aware document tailoring and triage',
@@ -286,6 +341,11 @@ export const PROJECTS_DATA = [
     description:
       'All-in-one church care and congregation management system built for diaspora assemblies with WhatsApp communication wedges, pastoral drift detection, and row-level security isolation.',
     architecture: ['React', 'WhatsApp Webhooks', 'Row-Level Security', 'Tailwind CSS', 'Supabase'],
+    tasksDone: [
+      'Constructed unified member registry, donor contribution tracking, and small group management',
+      'Automated multi-channel WhatsApp and email liturgical communications pipeline',
+      'Engineered role-based access control with Supabase Row-Level Security protecting pastoral records'
+    ],
     highlights: [
       'Direct WhatsApp integration replacing unread emails for diaspora assemblies',
       'Pastoral care workflows with automated family drift detection',
@@ -306,6 +366,11 @@ export const PROJECTS_DATA = [
     description:
       'Civic engagement, member directory, and welfare support platform connecting diaspora families and local businesses across Ontario with event aggregation and verification.',
     architecture: ['React', 'Supabase', 'Civic Directory', 'Event Telemetry', 'Cloud Hosting'],
+    tasksDone: [
+      'Constructed youth mentorship matching system and skill development workshop scheduler',
+      'Configured on-premise Proxmox VE hypervisor cluster secured by Cloudflare Zero Trust',
+      'Automated volunteer background check and orientation tracking workflows'
+    ],
     highlights: [
       'Unified member onboarding, welfare support indexing, and regional event discovery',
       'Culturally grounded civic tech platform serving diaspora communities in Ontario',
@@ -326,6 +391,11 @@ export const PROJECTS_DATA = [
     description:
       'Independent insurance, wealth preservation, and legacy strategy advisory portal empowering families and business owners across Canada and the U.S.',
     architecture: ['React', 'Vite', 'Financial Telemetry', 'Lead Pipeline', 'Tailwind CSS'],
+    tasksDone: [
+      'Architected institutional client onboarding intake portal for private wealth advisory',
+      'Engineered encrypted client statement vault with immutable audit logs',
+      'Reduced client onboarding turnaround from 4 business days to under 45 minutes'
+    ],
     highlights: [
       'Tailored wealth preservation and insurance strategy advisory portal',
       'High-conversion interactive consultation booking and resource delivery',

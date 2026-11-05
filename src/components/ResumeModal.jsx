@@ -59,7 +59,7 @@ export default function ResumeModal({ isOpen, onClose }) {
               </div>
               <div className="flex items-center md:justify-end gap-1.5 font-mono">
                 <Mail className="w-3 h-3 text-[var(--color-cool)]" aria-hidden="true" />
-                <span>consult@tdwas.com</span>
+                <span>hello@tdwas.com &middot; wisdom.salami@tdwas.com</span>
               </div>
             </div>
           </div>

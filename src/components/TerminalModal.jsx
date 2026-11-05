@@ -138,7 +138,8 @@ Base of Operations: Greater Toronto Area (GTA), Ontario, Canada (Available for o
           type: 'output',
           text: `TDWAS TECHNOLOGIES DISPATCH:
   Web Portal  : https://tdwas.com
-  Email       : consult@tdwas.com
+  Inquiries   : hello@tdwas.com
+  Personal    : wisdom.salami@tdwas.com
   Ecosystem   : bwglife.ca, simcoeconnect.ca, ileoja.ca, mytechrodeo.com
   Service Area: Greater Toronto Area, Ontario & Global Remote
   Action      : Scroll down to the Consultation Builder to dispatch a formatted project brief.`
