@@ -2,9 +2,9 @@ import React from 'react';
 import { ADVISORY_SCOPES } from '../data/portfolioData';
 
 const COLLAGE = {
-  'grc-audit': ['/work/tdwas.jpg', '/work/simcoeconnect.jpg'],
-  'cloud-infra': ['/work/simcoeconnect.jpg', '/work/bwglife.jpg'],
-  'ai-automation': ['/work/bwglife.jpg', '/work/ileoja.jpg']
+  'grc-audit': ['/work/tdwas.jpg', '/work/sterrawealth.jpg'],
+  'cloud-infra': ['/work/gvakids.jpg', '/work/kindredchms.jpg'],
+  'ai-automation': ['/work/bwglife.jpg', '/work/nysaconnect.jpg']
 };
 
 export default function AdvisoryScopes({ onSelectScope }) {

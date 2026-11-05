@@ -4,11 +4,13 @@ import SystemsCanvas from './SystemsCanvas';
 
 const WORDMARKS = [
   { name: 'tdwas', href: 'https://tdwas.com' },
+  { name: 'Kindred ChMS', href: 'https://kindredchms.com' },
+  { name: 'Sterra Wealth', href: 'https://sterrawealth.com' },
+  { name: 'KiddoChecker', href: 'https://kids.gvachurch.com' },
+  { name: 'NYSA Connect', href: 'https://nysaconnect.ca' },
   { name: 'BWG Life', href: 'https://bwglife.ca' },
-  { name: 'Simcoe Connect', href: 'https://simcoeconnect.ca' },
   { name: 'iLeOja', href: 'https://ileoja.ca' },
   { name: 'BradfordFarmer' },
-  { name: 'KiddoChecker' },
   { name: 'Neon Breach' }
 ];
 
@@ -21,7 +23,7 @@ export default function Projects({ onSelectProject }) {
         <div className="max-w-[34rem] space-y-3">
           <h2 className="text-[clamp(2rem,3.2vw,2.75rem)] leading-[1.1] text-[var(--color-ink)]">Selected work</h2>
           <p className="text-[1.0625rem] leading-relaxed text-[var(--color-muted)]">
-            Ten systems, laid out the way I work on them. Drag to look around, and click a frame to open it.
+            Thirteen systems, laid out the way I work on them. Drag to look around, and click a frame to open it.
           </p>
         </div>
 

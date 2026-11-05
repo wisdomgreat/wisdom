@@ -69,7 +69,7 @@ export default function Footer({ onOpenTerminal, onOpenResume }) {
                 Platforms
               </span>
               <ul className="space-y-2 font-mono text-[11px]">
-                {['tdwas.com', 'bwglife.ca', 'simcoeconnect.ca', 'ileoja.ca'].map((domain) => (
+                {['tdwas.com', 'kindredchms.com', 'sterrawealth.com', 'kids.gvachurch.com', 'nysaconnect.ca', 'bwglife.ca', 'ileoja.ca'].map((domain) => (
                   <li key={domain}>
                     <a
                       href={`https://${domain}`}

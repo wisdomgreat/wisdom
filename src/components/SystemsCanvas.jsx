@@ -2,8 +2,8 @@ import React, { useState, useRef } from 'react';
 import { Plus, Minus, Hand, List } from 'lucide-react';
 import { CANVAS_LAYOUT } from '../data/portfolioData';
 
-const WORLD = { w: 1780, h: 1120 };
-const START = { x: 12, y: 8, zoom: 0.66 };
+const WORLD = { w: 2200, h: 1260 };
+const START = { x: 12, y: 8, zoom: 0.62 };
 
 function FrameFace({ project, spot }) {
   if (spot.image) {
@@ -67,8 +67,8 @@ export default function SystemsCanvas({ projects, onSelectProject, onShowList })
     if (Math.abs(dx) > 4 || Math.abs(dy) > 4) drag.current.moved = true;
     setView((v) => ({
       ...v,
-      x: Math.max(-1100, Math.min(300, drag.current.ox + dx)),
-      y: Math.max(-800, Math.min(200, drag.current.oy + dy))
+      x: Math.max(-1500, Math.min(300, drag.current.ox + dx)),
+      y: Math.max(-950, Math.min(200, drag.current.oy + dy))
     }));
   };
 

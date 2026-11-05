@@ -138,21 +138,22 @@ export const PROJECTS_DATA = [
   },
   {
     id: 'kiddochecker',
-    title: 'KiddoChecker Cloud Security',
-    headline: 'Securing youth check-in and guardian verification via Azure Cloud Communication.',
-    domain: 'Azure Cloud Deployment',
+    title: 'KiddoChecker (GVA Kids)',
+    headline: 'Child check-in security, guardian claim codes, and Brother QL thermal tag printing on Azure.',
+    domain: 'kids.gvachurch.com',
+    url: 'https://kids.gvachurch.com',
     category: 'Platforms & SaaS',
-    featured: false,
-    status: 'Cloud Deployed',
+    featured: true,
+    status: 'Live Kiosk Terminal',
     badge: 'Youth Safety & IAM',
     coords: { x: 50, y: 390 },
     description:
-      'Cloud-deployed child check-in, guardian verification, and real-time attendance security platform integrated with Microsoft Azure Communication Services for local youth programs.',
-    architecture: ['Microsoft Azure', 'Azure Communication Services', 'React', 'SMS Verification', 'RBAC'],
+      'Cloud-deployed child check-in, guardian verification, and real-time attendance security platform integrated with Microsoft Azure Container Apps, Brother QL instant thermal printing, and SMS alerts.',
+    architecture: ['Microsoft Azure', 'React', 'Thermal Printing', 'SMS Verification', 'RBAC'],
     highlights: [
-      'Real-time SMS guardian alerts and secure pickup token verification via Azure',
-      'Role-based access control and audit logging for youth organization administrators',
-      'Fast, touch-friendly kiosk mode for high-traffic check-in desks'
+      'Four-digit matching guardian claim codes and instant Brother QL thermal tag printing',
+      'Real-time SMS guardian alerts and emergency allergy flags for volunteers',
+      'AES-256 encryption at rest and COPPA privacy compliance on Azure'
     ]
   },
   {
@@ -250,21 +251,83 @@ export const PROJECTS_DATA = [
       'Multi-step LLM reasoning nodes for context-aware document tailoring and triage',
       'Modular webhook architecture connecting CRM, email, and database sinks'
     ]
+  },
+  {
+    id: 'kindredchms',
+    title: 'Kindred ChMS',
+    headline: 'Church care platform with WhatsApp integration and row-level tenant privacy for diaspora congregations.',
+    domain: 'kindredchms.com',
+    url: 'https://kindredchms.com',
+    category: 'Platforms & SaaS',
+    featured: true,
+    status: 'Live Production Platform',
+    badge: 'Church Tech & Privacy',
+    coords: { x: 1440, y: 50 },
+    description:
+      'All-in-one church care and congregation management system built for diaspora assemblies with WhatsApp communication wedges, pastoral drift detection, and row-level security isolation.',
+    architecture: ['React', 'WhatsApp Webhooks', 'Row-Level Security', 'Tailwind CSS', 'Supabase'],
+    highlights: [
+      'Direct WhatsApp integration replacing unread emails for diaspora assemblies',
+      'Pastoral care workflows with automated family drift detection',
+      'Zero-trust row-level security ensuring strict multi-tenant isolation'
+    ]
+  },
+  {
+    id: 'nysaconnect',
+    title: 'NYSA Connect',
+    headline: 'Community directory and member welfare portal for the Nigerian Canadian Association across Ontario.',
+    domain: 'nysaconnect.ca',
+    url: 'https://nysaconnect.ca',
+    category: 'Platforms & SaaS',
+    featured: true,
+    status: 'Live Community Portal',
+    badge: 'Civic Tech & Welfare',
+    coords: { x: 1080, y: 470 },
+    description:
+      'Civic engagement, member directory, and welfare support platform connecting diaspora families and local businesses across Ontario with event aggregation and verification.',
+    architecture: ['React', 'Supabase', 'Civic Directory', 'Event Telemetry', 'Cloud Hosting'],
+    highlights: [
+      'Unified member onboarding, welfare support indexing, and regional event discovery',
+      'Culturally grounded civic tech platform serving diaspora communities in Ontario',
+      'Fast, mobile-optimized experience with member verification workflows'
+    ]
+  },
+  {
+    id: 'sterrawealth',
+    title: 'Sterra Wealth',
+    headline: 'Wealth advisory and financial protection portal for independent professionals and families.',
+    domain: 'sterrawealth.com',
+    url: 'https://sterrawealth.com',
+    category: 'FinTech & LegalTech',
+    featured: true,
+    status: 'Live Advisory Portal',
+    badge: 'Wealth Advisory',
+    coords: { x: 60, y: 820 },
+    description:
+      'Independent insurance, wealth preservation, and legacy strategy advisory portal empowering families and business owners across Canada and the U.S.',
+    architecture: ['React', 'Vite', 'Financial Telemetry', 'Lead Pipeline', 'Tailwind CSS'],
+    highlights: [
+      'Tailored wealth preservation and insurance strategy advisory portal',
+      'High-conversion interactive consultation booking and resource delivery',
+      'Built for cross-border financial planning across Canada and the U.S.'
+    ]
   }
 ];
 
 export const CANVAS_LAYOUT = {
-  tdwas:          { x: 60,   y: 70,  w: 520, kind: 'Website',  image: '/work/tdwas.jpg' },
-  bwglife:        { x: 640,  y: 40,  w: 360, kind: 'Platform', image: '/work/bwglife.jpg' },
-  simcoe:         { x: 1060, y: 110, w: 460, kind: 'Platform', image: '/work/simcoeconnect.jpg', alias: 'bwglife', title: 'Simcoe Connect' },
-  neonbreach:     { x: 90,   y: 520, w: 330, kind: 'Simulation', tone: 'night' },
-  bradfordfarmer: { x: 480,  y: 470, w: 400, kind: 'Platform', tone: 'sheet' },
-  ileoja:         { x: 940,  y: 500, w: 440, kind: 'Website',  image: '/work/ileoja.jpg' },
-  jobautomation:  { x: 1440, y: 470, w: 280, kind: 'Pipeline', tone: 'night' },
-  kiddochecker:   { x: 200,  y: 860, w: 300, kind: 'Cloud app', tone: 'sheet' },
-  loangenerator:  { x: 560,  y: 820, w: 340, kind: 'Utility',  tone: 'night' },
-  cryptobot:      { x: 960,  y: 880, w: 300, kind: 'Daemon',   tone: 'sheet' },
-  studiorecorder: { x: 1320, y: 800, w: 330, kind: 'Tool',     tone: 'night' }
+  tdwas:          { x: 60,   y: 70,  w: 520, kind: 'Website',       image: '/work/tdwas.jpg' },
+  bwglife:        { x: 640,  y: 40,  w: 360, kind: 'Platform',      image: '/work/bwglife.jpg' },
+  simcoe:         { x: 1060, y: 110, w: 460, kind: 'Platform',      image: '/work/simcoeconnect.jpg', alias: 'bwglife', title: 'Simcoe Connect' },
+  kindredchms:    { x: 1580, y: 70,  w: 480, kind: 'Church Tech',   image: '/work/kindredchms.jpg' },
+  sterrawealth:   { x: 60,   y: 500, w: 460, kind: 'Wealth Portal', image: '/work/sterrawealth.jpg' },
+  kiddochecker:   { x: 570,  y: 480, w: 430, kind: 'Security Kiosk',image: '/work/gvakids.jpg', title: 'GVA Kids' },
+  nysaconnect:    { x: 1060, y: 490, w: 460, kind: 'Civic Platform',image: '/work/nysaconnect.jpg' },
+  ileoja:         { x: 1580, y: 500, w: 460, kind: 'Marketplace',   image: '/work/ileoja.jpg' },
+  neonbreach:     { x: 80,   y: 890, w: 340, kind: 'Simulation',    tone: 'night' },
+  bradfordfarmer: { x: 480,  y: 870, w: 380, kind: 'AgTech',        tone: 'sheet' },
+  jobautomation:  { x: 920,  y: 890, w: 330, kind: 'Pipeline',      tone: 'night' },
+  loangenerator:  { x: 1310, y: 880, w: 330, kind: 'Utility',       tone: 'night' },
+  cryptobot:      { x: 1700, y: 890, w: 320, kind: 'Daemon',        tone: 'sheet' }
 };
 
 export const ADVISORY_SCOPES = [
