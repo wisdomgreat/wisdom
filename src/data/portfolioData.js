@@ -61,12 +61,14 @@ export const PROJECTS_DATA = [
   {
     id: 'tdwas',
     title: 'TDWAS Technologies',
+    headline: 'Zero-trust enterprise governance and hybrid managed infrastructure.',
     domain: 'tdwas.com',
     url: 'https://tdwas.com',
     category: 'Platforms & SaaS',
     featured: true,
     status: 'Live Enterprise Portal',
     badge: 'Flagship Consultancy',
+    coords: { x: 50, y: 50 },
     description:
       'Principal IT consulting, Managed Services, and Cybersecurity/GRC advisory firm serving Simcoe County and the Greater Toronto Area with hybrid cloud, security governance, and custom AI automation.',
     architecture: ['React', 'Tailwind CSS', 'Cloudflare Zero Trust', 'Enterprise GRC', 'Managed IT'],
@@ -79,12 +81,14 @@ export const PROJECTS_DATA = [
   {
     id: 'bwglife',
     title: 'BWG Life & Simcoe Connect',
+    headline: 'Unifying municipal merchant discovery with automated SEO telemetry.',
     domain: 'bwglife.ca / simcoeconnect.ca',
     url: 'https://bwglife.ca',
     category: 'Platforms & SaaS',
     featured: true,
     status: 'Live Regional Ecosystem',
     badge: 'Hyperlocal Civic Tech',
+    coords: { x: 440, y: 50 },
     description:
       'Dual hyperlocal community directories and civic/business discovery platforms engineered for Bradford West Gwillimbury and Simcoe County, deeply optimized with Google Search Console telemetry.',
     architecture: ['React', 'Supabase', 'SEO Telemetry', 'Google Search Console', 'Responsive UI'],
@@ -97,11 +101,13 @@ export const PROJECTS_DATA = [
   {
     id: 'bradfordfarmer',
     title: 'BradfordFarmer AgTech Suite',
+    headline: 'Automating CRA T2042 farm tax compliance and provincial grant matching.',
     domain: 'AgTech & Tax Compliance',
     category: 'FinTech & LegalTech',
     featured: true,
     status: 'Production Platform',
     badge: 'Simcoe AgTech',
+    coords: { x: 830, y: 50 },
     description:
       'Specialized agricultural compliance and operations platform built for Simcoe County & Holland Marsh farmers to automate administrative paperwork, government grant matching, and CRA T2042 farm tax compliance.',
     architecture: ['React', 'TypeScript', 'CRA T2042 Engine', 'Grant Matching AI', 'Supabase'],
@@ -114,11 +120,13 @@ export const PROJECTS_DATA = [
   {
     id: 'neonbreach',
     title: 'Neon Breach',
+    headline: 'Simulating intrusion detection and breach telemetry under audited benchmarks.',
     domain: 'Handshake AI Validated',
     category: 'AI & Automation',
     featured: true,
     status: 'Validated Technical Build',
     badge: 'Cybersecurity Simulation',
+    coords: { x: 1220, y: 50 },
     description:
       'Interactive cybersecurity defense and breach telemetry application built, audited, and officially approved within the Handshake AI Fellowship engineering program.',
     architecture: ['Interactive Canvas', 'Cyber Telemetry', 'React', 'State Machine', 'Handshake AI'],
@@ -131,11 +139,13 @@ export const PROJECTS_DATA = [
   {
     id: 'kiddochecker',
     title: 'KiddoChecker Cloud Security',
+    headline: 'Securing youth check-in and guardian verification via Azure Cloud Communication.',
     domain: 'Azure Cloud Deployment',
     category: 'Platforms & SaaS',
     featured: false,
     status: 'Cloud Deployed',
     badge: 'Youth Safety & IAM',
+    coords: { x: 50, y: 390 },
     description:
       'Cloud-deployed child check-in, guardian verification, and real-time attendance security platform integrated with Microsoft Azure Communication Services for local youth programs.',
     architecture: ['Microsoft Azure', 'Azure Communication Services', 'React', 'SMS Verification', 'RBAC'],
@@ -148,12 +158,14 @@ export const PROJECTS_DATA = [
   {
     id: 'ileoja',
     title: 'IleOja & MyTechRodeo',
+    headline: 'Bridging localized cultural commerce with independent cloud technology analysis.',
     domain: 'ileoja.ca / mytechrodeo.com',
     url: 'https://ileoja.ca',
     category: 'Platforms & SaaS',
     featured: false,
     status: 'Live Platforms',
     badge: 'Marketplace & Media',
+    coords: { x: 440, y: 390 },
     description:
       'Specialized digital marketplace architecture (IleOja) paired with an independent technology analysis and modern engineering insights publication (MyTechRodeo).',
     architecture: ['Full-Stack Web', 'Content Engine', 'E-Commerce Flows', 'Cloud Hosting'],
@@ -166,11 +178,13 @@ export const PROJECTS_DATA = [
   {
     id: 'studiorecorder',
     title: 'Web Audio & Canvas Studio Recorder',
+    headline: 'Delivering client-side dual-channel audio mixing and hardware-accelerated canvas capture.',
     domain: 'Desktop & Web Media Engine',
     category: 'Media & Web Apps',
     featured: false,
     status: 'Production Tool',
     badge: 'DSP & Media Engineering',
+    coords: { x: 830, y: 390 },
     description:
       'Client-side screen and dual-channel audio recording suite featuring real-time Web Audio API VU meters, multi-source audio mixing, and standalone Windows desktop packaging.',
     architecture: ['Web Audio API', 'HTML5 Canvas', 'MediaRecorder API', 'Windows Desktop Wrapper'],
@@ -183,11 +197,13 @@ export const PROJECTS_DATA = [
   {
     id: 'cryptobot',
     title: 'Algorithmic Crypto Trading & Telemetry Bot',
+    headline: 'Enforcing programmatic risk management and automated market telemetry to encrypted channels.',
     domain: 'Bybit API + Telegram Pipeline',
     category: 'AI & Automation',
     featured: false,
     status: 'Active Daemon',
     badge: 'Quantitative Python',
+    coords: { x: 1220, y: 390 },
     description:
       'Python-driven automated market telemetry and execution engine integrated with Bybit derivatives/spot APIs, multi-timeframe technical indicators, and instant Telegram alert pipelines.',
     architecture: ['Python 3', 'Bybit REST/WebSocket API', 'Telegram Bot API', 'Linux Systemd', 'Quantitative TA'],
@@ -200,11 +216,13 @@ export const PROJECTS_DATA = [
   {
     id: 'loangenerator',
     title: 'Interest-Only Loan Agreement Generator',
+    headline: 'Automating legal compliance and amortization modeling for private debt agreements.',
     domain: 'LegalTech & FinTech Utility',
     category: 'FinTech & LegalTech',
     featured: false,
     status: 'Production Utility',
     badge: 'Contract Automation',
+    coords: { x: 245, y: 730 },
     description:
       'Precision LegalTech and FinTech web application supporting customizable interest-only loan amortization schedules, automated late-fee/default calculations, and print-ready PDF legal export.',
     architecture: ['React', 'Financial Math Engine', 'Print/PDF CSS', 'Document Templating'],
@@ -217,11 +235,13 @@ export const PROJECTS_DATA = [
   {
     id: 'jobautomation',
     title: 'JobAutomation & Autonomous Lead Pipelines',
+    headline: 'Orchestrating autonomous lead triage and headless browser telemetry through n8n graphs.',
     domain: 'n8n + Browserbase + AI Agents',
     category: 'AI & Automation',
     featured: false,
     status: 'Open-Source & Internal Engine',
     badge: 'Agentic Workflows',
+    coords: { x: 740, y: 730 },
     description:
       'End-to-end autonomous pipeline orchestration combining Python toolchains, n8n webhook graphs, Browserbase cloud browsers, and LLM agents for intelligent outreach and workflow execution.',
     architecture: ['n8n', 'Browserbase', 'Python', 'Google AI Studio', 'Webhook Orchestration'],
@@ -230,6 +250,51 @@ export const PROJECTS_DATA = [
       'Multi-step LLM reasoning nodes for context-aware document tailoring and triage',
       'Modular webhook architecture connecting CRM, email, and database sinks'
     ]
+  }
+];
+
+export const ADVISORY_SCOPES = [
+  {
+    id: 'grc-audit',
+    title: 'Cybersecurity, GRC & Risk Assessment',
+    category: 'Governance & Risk',
+    tagline: 'Enterprise compliance frameworks, threat modeling, and audit readiness.',
+    duration: 'Usually 2 to 3 weeks',
+    deliverables: [
+      'Comprehensive risk register and vulnerability posture review',
+      'KYC/AML screening workflow and sanction verification audit',
+      'Zero-Trust identity and access architecture blueprint',
+      'Executive remediation roadmap aligned with SOC 2 / ISO standards'
+    ],
+    idealFor: 'FinTech, regional enterprise and regulated operations'
+  },
+  {
+    id: 'cloud-infra',
+    title: 'Hybrid Cloud & Systems Architecture',
+    category: 'Infrastructure & DevOps',
+    tagline: 'Bridging Proxmox virtualization, Azure enterprise, and Cloudflare tunnels.',
+    duration: 'Usually 3 to 5 weeks',
+    deliverables: [
+      'Fault-tolerant Proxmox VE clustering and hardware hypervisor setup',
+      'Cloudflare Zero Trust encrypted edge tunnels replacing legacy VPNs',
+      'Windows Server / Active Directory and SCCM compliance automation',
+      'Off-site automated backup pipelines and disaster recovery testing'
+    ],
+    idealFor: 'SMBs, medical clinics, and distributed engineering teams'
+  },
+  {
+    id: 'ai-automation',
+    title: 'Production AI & Agentic Workflows',
+    category: 'AI & Platforms',
+    tagline: 'Custom React/Supabase platforms, n8n webhooks, and telemetry pipelines.',
+    duration: 'Usually 4 to 6 weeks',
+    deliverables: [
+      'Bespoke production web application with Supabase auth and storage',
+      'Autonomous n8n pipeline orchestration connected to CRM and databases',
+      'Headless browser automation via Browserbase for data collection',
+      'Real-time observability and event alerting via Telegram or email'
+    ],
+    idealFor: 'Startups, agriculture operators, and high-volume service businesses'
   }
 ];
 

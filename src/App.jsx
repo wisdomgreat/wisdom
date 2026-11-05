@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Pillars from './components/Pillars';
 import Projects from './components/Projects';
+import AdvisoryScopes from './components/AdvisoryScopes';
 import Homelab from './components/Homelab';
 import Skills from './components/Skills';
 import Timeline from './components/Timeline';
@@ -17,6 +18,7 @@ export default function App() {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [resumeOpen, setResumeOpen] = useState(false);
   const [selectedProjectModal, setSelectedProjectModal] = useState(null);
+  const [selectedAdvisoryScope, setSelectedAdvisoryScope] = useState(null);
 
   // Global Keyboard shortcuts
   useEffect(() => {
@@ -75,29 +77,37 @@ export default function App() {
         {/* 2. Core Pillars */}
         <Pillars />
 
-        {/* 3. Featured Ecosystem & Projects */}
+        {/* 3. Featured Ecosystem & Systems Canvas */}
         <Projects
           onSelectProject={(project) => setSelectedProjectModal(project)}
         />
 
-        {/* 4. Interactive Home Lab */}
+        {/* 4. Advisory and Engineering Scopes */}
+        <AdvisoryScopes
+          onSelectScope={(scope) => {
+            setSelectedAdvisoryScope(scope.title);
+            scrollToSection('contact');
+          }}
+        />
+
+        {/* 5. Interactive Home Lab */}
         <Homelab />
 
-        {/* 5. Toolchain Matrix */}
+        {/* 6. Toolchain Matrix */}
         <Skills />
 
-        {/* 6. Professional Timeline */}
+        {/* 7. Professional Timeline */}
         <Timeline
           onOpenResume={() => setResumeOpen(true)}
         />
 
-        {/* 7. Beyond the Terminal */}
+        {/* 8. Beyond the Terminal */}
         <BeyondTerminal
           onOpenTerminal={() => setTerminalOpen(true)}
         />
 
-        {/* 8. Consultation Builder */}
-        <ConsultationBuilder />
+        {/* 9. Consultation Builder */}
+        <ConsultationBuilder preselectedService={selectedAdvisoryScope} />
       </main>
 
       {/* Footer */}

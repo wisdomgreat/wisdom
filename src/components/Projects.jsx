@@ -4,11 +4,15 @@ import {
   Globe,
   ExternalLink,
   Eye,
-  X
+  X,
+  LayoutGrid,
+  ListFilter
 } from 'lucide-react';
 import { PROJECTS_DATA } from '../data/portfolioData';
+import SystemsCanvas from './SystemsCanvas';
 
 export default function Projects({ onSelectProject }) {
+  const [viewMode, setViewMode] = useState('canvas');
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -28,6 +32,7 @@ export default function Projects({ onSelectProject }) {
 
       const matchesQuery =
         project.title.toLowerCase().includes(q) ||
+        (project.headline && project.headline.toLowerCase().includes(q)) ||
         project.description.toLowerCase().includes(q) ||
         project.domain.toLowerCase().includes(q) ||
         project.architecture.some((tech) => tech.toLowerCase().includes(q)) ||
@@ -39,164 +44,237 @@ export default function Projects({ onSelectProject }) {
 
   return (
     <section id="projects" className="scroll-mt-24 space-y-8">
+      {/* Section Header with View Toggle & Search */}
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-[var(--color-rule)] pb-4">
         <div>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
+            <span className="text-xs font-mono text-[var(--color-muted)]">
+              Architectural Portfolio & Live Production Nodes
+            </span>
+          </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-ink)]">
-            Production Platforms and Builds
+            Production Platforms and Systems
           </h2>
-          <p className="text-sm text-[var(--color-muted)] mt-1">
-            Ten live SaaS portals, civic tech initiatives, and validated automated systems.
+          <p className="text-sm text-[var(--color-muted)] mt-1 max-w-2xl">
+            Ten live SaaS portals, civic tech initiatives, and validated automated systems laid out across our systems workbench.
           </p>
         </div>
 
-        {/* Search Input */}
-        <div className="relative w-full lg:w-80">
-          <Search className="w-4 h-4 text-[var(--color-muted)] absolute left-3.5 top-1/2 -translate-y-1/2" aria-hidden="true" />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search stack, domain or title..."
-            className="w-full pl-10 pr-10 py-2 rounded-[var(--radius-pill)] text-sm border border-[var(--color-rule)] bg-[var(--color-paper-2)] text-[var(--color-ink)] placeholder:text-[var(--color-muted)] focus:border-[var(--color-cool)] outline-none transition-colors duration-150"
-          />
-          {searchQuery && (
+        {/* View Mode Toggle */}
+        <div className="flex items-center gap-2 self-start lg:self-auto">
+          <div className="p-1 rounded-[var(--radius-pill)] border border-[var(--color-rule)] bg-[var(--color-paper-2)] flex items-center gap-1">
             <button
-              onClick={() => setSearchQuery('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[var(--color-muted)] hover:text-[var(--color-ink)]"
-              aria-label="Clear search"
+              type="button"
+              onClick={() => setViewMode('canvas')}
+              className={`px-3 py-1.5 rounded-[var(--radius-pill)] text-xs transition-colors duration-150 flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] ${
+                viewMode === 'canvas'
+                  ? 'bg-[var(--color-accent)] text-[var(--color-accent-ink)] font-semibold'
+                  : 'text-[var(--color-muted)] hover:text-[var(--color-ink)]'
+              }`}
             >
-              <X className="w-3.5 h-3.5" aria-hidden="true" />
+              <LayoutGrid className="w-3.5 h-3.5" aria-hidden="true" />
+              <span>Systems canvas</span>
             </button>
-          )}
+
+            <button
+              type="button"
+              onClick={() => setViewMode('list')}
+              className={`px-3 py-1.5 rounded-[var(--radius-pill)] text-xs transition-colors duration-150 flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] ${
+                viewMode === 'list'
+                  ? 'bg-[var(--color-accent)] text-[var(--color-accent-ink)] font-semibold'
+                  : 'text-[var(--color-muted)] hover:text-[var(--color-ink)]'
+              }`}
+            >
+              <ListFilter className="w-3.5 h-3.5" aria-hidden="true" />
+              <span>View as list</span>
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Category Filter Pills */}
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-2">
-          {categories.map((cat) => {
-            const active = activeCategory === cat;
-            return (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-[var(--radius-pill)] text-xs transition-colors duration-150 border whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] ${
-                  active
-                    ? 'bg-[var(--color-accent)] text-[var(--color-accent-ink)] font-semibold border-[var(--color-accent)]'
-                    : 'bg-[var(--color-paper-2)] border-[var(--color-rule)] text-[var(--color-ink-2)] hover:border-[var(--color-rule-2)]'
-                }`}
-              >
-                {cat}
-              </button>
-            );
-          })}
-        </div>
-
-        <span className="text-xs text-[var(--color-muted)]">
-          {filteredProjects.length} of {PROJECTS_DATA.length} systems
-        </span>
-      </div>
-
-      {/* Projects Grid */}
-      {filteredProjects.length === 0 ? (
-        <div className="p-10 text-center rounded-[var(--radius-card)] border border-[var(--color-rule)] bg-[var(--color-paper-2)] text-sm text-[var(--color-muted)]">
-          No matching architectures or platforms found for &quot;{searchQuery}&quot;.
-          <button
-            onClick={() => {
-              setSearchQuery('');
-              setActiveCategory('All');
-            }}
-            className="block mx-auto mt-2 text-xs text-[var(--color-accent)] underline underline-offset-4"
-          >
-            Reset all filters
-          </button>
+      {/* Conditional Rendering: Canvas vs List View */}
+      {viewMode === 'canvas' ? (
+        <div className="space-y-4">
+          <SystemsCanvas
+            projects={PROJECTS_DATA}
+            onSelectProject={onSelectProject}
+          />
+          <div className="flex items-center justify-between text-xs text-[var(--color-muted)] px-1">
+            <span>Showing all 10 architectural nodes</span>
+            <button
+              type="button"
+              onClick={() => setViewMode('list')}
+              className="text-[var(--color-cool)] hover:text-[var(--color-ink)] underline underline-offset-2 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
+            >
+              View as list
+            </button>
+          </div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className="rounded-[var(--radius-card)] border border-[var(--color-rule)] bg-[var(--color-paper-2)] p-6 flex flex-col justify-between hover:border-[var(--color-rule-2)] transition-colors duration-150"
-            >
-              <div className="space-y-4">
-                {/* Top Metadata Row */}
-                <div className="flex items-center justify-between gap-2">
-                  <span className="px-2 py-0.5 rounded-[var(--radius-pill)] text-xs font-medium text-[var(--color-accent)] bg-[var(--color-accent-soft)] border border-[var(--color-rule)]">
-                    {project.badge}
-                  </span>
-                  <span className="text-xs text-[var(--color-muted)]">
-                    {project.category}
-                  </span>
-                </div>
+        <div className="space-y-6">
+          {/* Controls: Search & Category Filter Pills */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            {/* Category Filter Pills */}
+            <div className="flex flex-wrap items-center gap-2">
+              {categories.map((cat) => {
+                const active = activeCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setActiveCategory(cat)}
+                    className={`px-3.5 py-1.5 rounded-[var(--radius-pill)] text-xs transition-colors duration-150 border whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] ${
+                      active
+                        ? 'bg-[var(--color-accent)] text-[var(--color-accent-ink)] font-semibold border-[var(--color-accent)]'
+                        : 'bg-[var(--color-paper-2)] border-[var(--color-rule)] text-[var(--color-ink-2)] hover:border-[var(--color-rule-2)]'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
 
-                {/* Title & Domain */}
-                <div>
-                  <h3 className="text-lg font-bold tracking-tight text-[var(--color-ink)]">
-                    {project.title}
-                  </h3>
-                  <div className="text-xs text-[var(--color-cool)] mt-1 flex items-center gap-1.5 font-mono">
-                    <Globe className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-                    <span className="truncate">{project.domain}</span>
-                    {project.url && (
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[var(--color-muted)] hover:text-[var(--color-ink)] ml-1"
-                        title="Visit live site"
-                      >
-                        <ExternalLink className="w-3 h-3" aria-hidden="true" />
-                      </a>
+            {/* Search Input */}
+            <div className="relative w-full sm:w-72">
+              <Search className="w-4 h-4 text-[var(--color-muted)] absolute left-3.5 top-1/2 -translate-y-1/2" aria-hidden="true" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search stack, domain or title..."
+                className="w-full pl-10 pr-10 py-1.5 rounded-[var(--radius-pill)] text-xs border border-[var(--color-rule)] bg-[var(--color-paper-2)] text-[var(--color-ink)] placeholder:text-[var(--color-muted)] focus:border-[var(--color-cool)] outline-none transition-colors duration-150"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[var(--color-muted)] hover:text-[var(--color-ink)]"
+                  aria-label="Clear search"
+                >
+                  <X className="w-3.5 h-3.5" aria-hidden="true" />
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Filter Status */}
+          <div className="text-xs text-[var(--color-muted)]">
+            Showing {filteredProjects.length} of {PROJECTS_DATA.length} systems
+          </div>
+
+          {/* Projects Grid */}
+          {filteredProjects.length === 0 ? (
+            <div className="p-10 text-center rounded-[var(--radius-card)] border border-[var(--color-rule)] bg-[var(--color-paper-2)] text-sm text-[var(--color-muted)]">
+              No matching architectures or platforms found for &quot;{searchQuery}&quot;.
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchQuery('');
+                  setActiveCategory('All');
+                }}
+                className="block mx-auto mt-2 text-xs text-[var(--color-accent)] underline underline-offset-4"
+              >
+                Reset all filters
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredProjects.map((project) => (
+                <div
+                  key={project.id}
+                  className="rounded-[var(--radius-card)] border border-[var(--color-rule)] bg-[var(--color-paper-2)] p-6 flex flex-col justify-between hover:border-[var(--color-accent)] transition-colors duration-150"
+                >
+                  <div className="space-y-4">
+                    {/* Top Metadata Row */}
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="px-2 py-0.5 rounded-[var(--radius-pill)] text-xs font-medium text-[var(--color-accent)] bg-[var(--color-accent-soft)] border border-[var(--color-rule)]">
+                        {project.badge}
+                      </span>
+                      <span className="text-xs text-[var(--color-muted)]">
+                        {project.category}
+                      </span>
+                    </div>
+
+                    {/* Title & Domain */}
+                    <div>
+                      <h3 className="text-lg font-bold tracking-tight text-[var(--color-ink)]">
+                        {project.title}
+                      </h3>
+                      <div className="text-xs text-[var(--color-cool)] mt-1 flex items-center gap-1.5 font-mono">
+                        <Globe className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                        <span className="truncate">{project.domain}</span>
+                        {project.url && (
+                          <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[var(--color-muted)] hover:text-[var(--color-ink)] ml-1"
+                            title="Visit live site"
+                          >
+                            <ExternalLink className="w-3 h-3" aria-hidden="true" />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Outcome Dilemma Headline */}
+                    {project.headline && (
+                      <p className="text-xs font-medium text-[var(--color-ink-2)] border-l-2 border-[var(--color-cool)] pl-2.5 italic">
+                        {project.headline}
+                      </p>
                     )}
+
+                    {/* Description */}
+                    <p className="text-sm leading-relaxed text-[var(--color-muted)] line-clamp-3">
+                      {project.description}
+                    </p>
+
+                    {/* Bullet Highlights */}
+                    <ul className="space-y-1.5 pt-1 text-xs text-[var(--color-ink-2)]">
+                      {project.highlights.map((hl, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-[var(--color-accent)] shrink-0">+</span>
+                          <span className="line-clamp-2">{hl}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Architecture Stack & Inspect Trigger */}
+                  <div className="pt-4 mt-5 border-t border-[var(--color-rule)] space-y-3">
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.architecture.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-0.5 rounded-[var(--radius-pill)] text-xs border border-[var(--color-rule)] bg-[var(--color-paper)] text-[var(--color-muted)]"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center justify-between pt-1 text-xs">
+                      <span className="inline-flex items-center gap-1.5 text-[var(--color-accent)]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
+                        <span className="truncate">{project.status}</span>
+                      </span>
+
+                      <button
+                        type="button"
+                        onClick={() => onSelectProject(project)}
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--color-cool)] hover:text-[var(--color-ink)] whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
+                      >
+                        <Eye className="w-3.5 h-3.5" aria-hidden="true" />
+                        <span>Inspect</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-
-                {/* Description */}
-                <p className="text-sm leading-relaxed text-[var(--color-muted)] line-clamp-3">
-                  {project.description}
-                </p>
-
-                {/* Bullet Highlights */}
-                <ul className="space-y-1.5 pt-1 text-xs text-[var(--color-ink-2)]">
-                  {project.highlights.map((hl, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="text-[var(--color-accent)] shrink-0">+</span>
-                      <span className="line-clamp-2">{hl}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Architecture Stack & Inspect Trigger */}
-              <div className="pt-4 mt-5 border-t border-[var(--color-rule)] space-y-3">
-                <div className="flex flex-wrap gap-1.5">
-                  {project.architecture.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-0.5 rounded-[var(--radius-pill)] text-xs border border-[var(--color-rule)] bg-[var(--color-paper)] text-[var(--color-muted)]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-between pt-1 text-xs">
-                  <span className="inline-flex items-center gap-1.5 text-[var(--color-accent)]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
-                    <span className="truncate">{project.status}</span>
-                  </span>
-
-                  <button
-                    onClick={() => onSelectProject(project)}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--color-cool)] hover:text-[var(--color-ink)] whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
-                  >
-                    <Eye className="w-3.5 h-3.5" aria-hidden="true" />
-                    <span>Inspect</span>
-                  </button>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
       )}
     </section>

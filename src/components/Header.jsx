@@ -44,7 +44,8 @@ export default function Header({
 
   const navLinks = [
     { label: 'Pillars', id: 'pillars', icon: Layers },
-    { label: 'Projects & SaaS', id: 'projects', icon: Code2 },
+    { label: 'Systems', id: 'projects', icon: Code2 },
+    { label: 'Advisory', id: 'advisory', icon: Briefcase },
     { label: 'Hybrid Lab', id: 'homelab', icon: Server },
     { label: 'Toolchain', id: 'skills', icon: Cpu },
     { label: 'Timeline', id: 'experience', icon: Briefcase },

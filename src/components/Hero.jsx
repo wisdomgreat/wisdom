@@ -54,13 +54,20 @@ export default function Hero({
               onClick={() => onScrollTo('projects')}
               className="px-5 py-3 rounded-[var(--radius-pill)] font-semibold text-xs sm:text-sm bg-[var(--color-accent)] text-[var(--color-accent-ink)] hover:bg-[var(--color-ink)] transition-colors duration-150 flex items-center gap-2 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
             >
-              <span>Explore 10+ platforms</span>
+              <span>Explore systems canvas</span>
               <ChevronRight className="w-4 h-4" aria-hidden="true" />
             </button>
 
             <button
-              onClick={onOpenResume}
+              onClick={() => onScrollTo('advisory')}
               className="px-4 py-3 rounded-[var(--radius-pill)] font-medium text-xs sm:text-sm border border-[var(--color-rule-2)] bg-[var(--color-paper-2)] text-[var(--color-ink)] hover:border-[var(--color-accent)] transition-colors duration-150 flex items-center gap-2 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
+            >
+              <span>Advisory scopes</span>
+            </button>
+
+            <button
+              onClick={onOpenResume}
+              className="px-4 py-3 rounded-[var(--radius-pill)] font-medium text-xs sm:text-sm border border-[var(--color-rule)] bg-[var(--color-paper)] text-[var(--color-ink)] hover:border-[var(--color-cool)] transition-colors duration-150 flex items-center gap-2 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
             >
               <FileText className="w-4 h-4 text-[var(--color-cool)]" aria-hidden="true" />
               <span>Capability statement</span>
@@ -71,7 +78,7 @@ export default function Hero({
               className="px-4 py-3 rounded-[var(--radius-pill)] font-mono text-xs border border-[var(--color-rule)] bg-[var(--color-paper-deep)] text-[var(--color-cool)] hover:border-[var(--color-cool)] transition-colors duration-150 flex items-center gap-2 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
             >
               <Terminal className="w-4 h-4" aria-hidden="true" />
-              <span>Interactive shell</span>
+              <span>Shell [Ctrl+K]</span>
             </button>
           </div>
 

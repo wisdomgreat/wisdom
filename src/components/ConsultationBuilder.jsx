@@ -6,8 +6,26 @@ import {
   CheckCircle2
 } from 'lucide-react';
 
-export default function ConsultationBuilder() {
-  const [serviceType, setServiceType] = useState('Cybersecurity & GRC Advisory');
+export default function ConsultationBuilder({ preselectedService }) {
+  const [userSelectedService, setUserSelectedService] = useState(null);
+
+  const serviceType = useMemo(() => {
+    if (userSelectedService) return userSelectedService;
+    if (preselectedService) {
+      if (preselectedService.includes('Cybersecurity') || preselectedService.includes('GRC')) {
+        return 'Cybersecurity & GRC Advisory';
+      }
+      if (preselectedService.includes('Cloud') || preselectedService.includes('Infrastructure') || preselectedService.includes('Proxmox')) {
+        return 'Cloud, Proxmox & Managed IT';
+      }
+      if (preselectedService.includes('AI') || preselectedService.includes('Workflows') || preselectedService.includes('Platforms')) {
+        return 'Full-Stack AI & SaaS Build';
+      }
+    }
+    return 'Cybersecurity & GRC Advisory';
+  }, [userSelectedService, preselectedService]);
+
+  const setServiceType = (val) => setUserSelectedService(val);
   const [scopeScale, setScopeScale] = useState('SMB / Regional Organization');
   const [timelineUrgency, setTimelineUrgency] = useState('Standard (2-4 Weeks)');
   const [selectedAddons, setSelectedAddons] = useState(['Zero Trust / Cloudflare Audit']);
