@@ -1,13 +1,12 @@
 import React, { useState, useMemo } from 'react';
 import {
-  Sliders,
   Send,
   Check,
   Copy,
   CheckCircle2
 } from 'lucide-react';
 
-export default function ConsultationBuilder({ darkMode }) {
+export default function ConsultationBuilder() {
   const [serviceType, setServiceType] = useState('Cybersecurity & GRC Advisory');
   const [scopeScale, setScopeScale] = useState('SMB / Regional Organization');
   const [timelineUrgency, setTimelineUrgency] = useState('Standard (2-4 Weeks)');
@@ -20,30 +19,30 @@ export default function ConsultationBuilder({ darkMode }) {
     name: '',
     organization: '',
     email: '',
-    location: 'Bradford / Simcoe County / GTA',
+    location: 'Bradford, Simcoe County or GTA',
     notes: ''
   });
 
   const consultationEstimate = useMemo(() => {
     const baseMap = {
       'Cybersecurity & GRC Advisory': {
-        deliverable: 'KYC/AML Risk Matrix, Sanctions Audit & Security Governance Roadmap',
-        effort: 'Advisory Retainer or Fixed Audit',
+        deliverable: 'KYC/AML risk matrix, sanctions audit and security governance roadmap',
+        effort: 'Advisory retainer or fixed audit',
         hours: '25 – 60 hrs'
       },
       'Cloud, Proxmox & Managed IT': {
-        deliverable: 'Hybrid Cloud / Virtualization Architecture, SCCM & Cloudflare Zero Trust Deployment',
-        effort: 'Systems Architecture & Managed Rollout',
+        deliverable: 'Hybrid cloud virtualization architecture, SCCM and Cloudflare Zero Trust deployment',
+        effort: 'Systems architecture and rollout',
         hours: '30 – 80 hrs'
       },
       'Full-Stack AI & SaaS Build': {
-        deliverable: 'Production React/Supabase Web Platform + Autonomous n8n / AI Agent Pipelines',
-        effort: 'Full-Stack Sprint Delivery',
+        deliverable: 'Production React/Supabase web platform with autonomous n8n and AI agent pipelines',
+        effort: 'Full-stack delivery sprint',
         hours: '40 – 120 hrs'
       },
       'Technical Training & Executive Workshop': {
-        deliverable: 'Custom Programming, AI Automation, or Cyber Hygiene Curriculum & Live Instruction',
-        effort: 'Cohort / Team Workshop',
+        deliverable: 'Custom programming, AI automation, or cyber hygiene curriculum and live instruction',
+        effort: 'Cohort or team workshop',
         hours: '10 – 35 hrs'
       }
     };
@@ -69,7 +68,7 @@ Organization: ${scopeScale}
 Horizon: ${timelineUrgency}
 Deliverable: ${consultationEstimate.deliverable}
 Estimated Effort: ${consultationEstimate.hours} (${consultationEstimate.effort})
-Selected Addons: ${selectedAddons.join(', ') || 'None'}
+Selected Modules: ${selectedAddons.join(', ') || 'None'}
 Contact: ${contactForm.name || 'Anonymous'} (${contactForm.email || 'Pending email'})`;
 
     navigator.clipboard?.writeText(brief);
@@ -84,39 +83,34 @@ Contact: ${contactForm.name || 'Anonymous'} (${contactForm.email || 'Pending ema
 
   return (
     <section id="contact" className="scroll-mt-24 space-y-8">
-      <div>
-        <div className="text-xs font-mono uppercase tracking-widest text-emerald-400 flex items-center gap-2">
-          <Sliders className="w-4 h-4" />
-          <span>TDWAS Technologies • Engagement & Inquiry Builder</span>
-        </div>
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mt-2">
-          Scope a Consultation or Technical Engagement
+      <div className="border-b border-[var(--color-rule)] pb-4">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-ink)]">
+          Scope a Consultation or Engagement
         </h2>
+        <p className="text-sm text-[var(--color-muted)] mt-1">
+          Configure engagement parameters to generate an instant architectural scope.
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left: Interactive Service Configurator */}
-        <div
-          className={`lg:col-span-6 rounded-2xl border p-6 sm:p-8 space-y-6 ${
-            darkMode ? 'bg-[#0D1320]/95 border-slate-800' : 'bg-white border-slate-200 shadow-sm'
-          }`}
-        >
-          <div className="flex items-center justify-between border-b border-slate-800/60 pb-4">
+        <div className="lg:col-span-6 rounded-[var(--radius-card)] border border-[var(--color-rule)] bg-[var(--color-paper-2)] p-6 space-y-5">
+          <div className="flex items-center justify-between border-b border-[var(--color-rule)] pb-3">
             <div>
-              <h3 className="text-lg font-bold">1. Configure Engagement Parameters</h3>
-              <p className={`text-xs mt-0.5 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
-                Select your primary pillar to generate an instant capability scope.
+              <h3 className="text-base font-bold text-[var(--color-ink)]">1. Parameters and scope</h3>
+              <p className="text-xs text-[var(--color-muted)] mt-0.5">
+                Select your advisory pillar to calculate estimated effort.
               </p>
             </div>
-            <span className="px-2.5 py-1 rounded text-xs font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
-              Instant Brief
+            <span className="px-2.5 py-0.5 rounded-[var(--radius-pill)] text-xs text-[var(--color-cool)] bg-[var(--color-cool-soft)] border border-[var(--color-rule)]">
+              Instant brief
             </span>
           </div>
 
           {/* Pillar Selector */}
           <div className="space-y-2">
-            <label className="text-xs font-mono uppercase text-slate-400">Primary Advisory Pillar</label>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <label className="text-xs font-medium text-[var(--color-muted)]">Primary advisory pillar</label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {[
                 'Cybersecurity & GRC Advisory',
                 'Cloud, Proxmox & Managed IT',
@@ -127,12 +121,10 @@ Contact: ${contactForm.name || 'Anonymous'} (${contactForm.email || 'Pending ema
                   key={option}
                   type="button"
                   onClick={() => setServiceType(option)}
-                  className={`p-3 rounded-xl border text-left text-xs font-semibold transition-all active:scale-98 ${
+                  className={`p-2.5 rounded-[var(--radius-card)] border text-left text-xs transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] ${
                     serviceType === option
-                      ? 'bg-emerald-500 text-slate-950 border-emerald-400 shadow-md font-bold'
-                      : darkMode
-                      ? 'bg-slate-950/70 border-slate-800 text-slate-300 hover:border-slate-700'
-                      : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
+                      ? 'bg-[var(--color-accent)] text-[var(--color-accent-ink)] border-[var(--color-accent)] font-semibold'
+                      : 'bg-[var(--color-paper)] border-[var(--color-rule)] text-[var(--color-ink-2)] hover:border-[var(--color-rule-2)]'
                   }`}
                 >
                   {option}
@@ -142,17 +134,13 @@ Contact: ${contactForm.name || 'Anonymous'} (${contactForm.email || 'Pending ema
           </div>
 
           {/* Organization Scale & Timeline */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="space-y-1.5">
-              <label className="text-xs font-mono uppercase text-slate-400">Organization Profile</label>
+              <label className="text-xs font-medium text-[var(--color-muted)]">Organization profile</label>
               <select
                 value={scopeScale}
                 onChange={(e) => setScopeScale(e.target.value)}
-                className={`w-full p-2.5 rounded-xl border text-xs font-medium outline-none ${
-                  darkMode
-                    ? 'bg-slate-950 border-slate-800 text-slate-200 focus:border-emerald-500'
-                    : 'bg-slate-50 border-slate-300 text-slate-800 focus:border-emerald-600'
-                }`}
+                className="w-full p-2.5 rounded-[var(--radius-pill)] border border-[var(--color-rule)] bg-[var(--color-paper)] text-xs text-[var(--color-ink)] focus:border-[var(--color-cool)] outline-none"
               >
                 <option>SMB / Regional Organization</option>
                 <option>Enterprise / Financial Institution</option>
@@ -162,15 +150,11 @@ Contact: ${contactForm.name || 'Anonymous'} (${contactForm.email || 'Pending ema
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-mono uppercase text-slate-400">Target Delivery Horizon</label>
+              <label className="text-xs font-medium text-[var(--color-muted)]">Target delivery horizon</label>
               <select
                 value={timelineUrgency}
                 onChange={(e) => setTimelineUrgency(e.target.value)}
-                className={`w-full p-2.5 rounded-xl border text-xs font-medium outline-none ${
-                  darkMode
-                    ? 'bg-slate-950 border-slate-800 text-slate-200 focus:border-emerald-500'
-                    : 'bg-slate-50 border-slate-300 text-slate-800 focus:border-emerald-600'
-                }`}
+                className="w-full p-2.5 rounded-[var(--radius-pill)] border border-[var(--color-rule)] bg-[var(--color-paper)] text-xs text-[var(--color-ink)] focus:border-[var(--color-cool)] outline-none"
               >
                 <option>Standard (2-4 Weeks)</option>
                 <option>Accelerated Sprint (1-2 Weeks)</option>
@@ -181,10 +165,10 @@ Contact: ${contactForm.name || 'Anonymous'} (${contactForm.email || 'Pending ema
 
           {/* Optional Technical Add-ons */}
           <div className="space-y-2">
-            <label className="text-xs font-mono uppercase text-slate-400">
-              Include Specialized Modules
+            <label className="text-xs font-medium text-[var(--color-muted)]">
+              Include specialized modules
             </label>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {[
                 'Zero Trust / Cloudflare Audit',
                 'KYC / AML & Sanctions Workflow',
@@ -198,12 +182,10 @@ Contact: ${contactForm.name || 'Anonymous'} (${contactForm.email || 'Pending ema
                     key={addon}
                     type="button"
                     onClick={() => toggleAddon(addon)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition-all active:scale-95 ${
+                    className={`px-2.5 py-1 rounded-[var(--radius-pill)] text-xs border transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] ${
                       active
-                        ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 font-semibold'
-                        : darkMode
-                        ? 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
-                        : 'bg-slate-100 border-slate-200 text-slate-600 hover:text-slate-900'
+                        ? 'bg-[var(--color-cool-soft)] border-[var(--color-cool)] text-[var(--color-cool)] font-medium'
+                        : 'bg-[var(--color-paper)] border-[var(--color-rule)] text-[var(--color-muted)] hover:text-[var(--color-ink)]'
                     }`}
                   >
                     {active ? '✓ ' : '+ '}
@@ -214,110 +196,99 @@ Contact: ${contactForm.name || 'Anonymous'} (${contactForm.email || 'Pending ema
             </div>
           </div>
 
-          {/* Live Generated Scope Summary Box */}
-          <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2 font-mono text-xs text-slate-300 relative">
-            <div className="text-emerald-400 font-bold flex items-center justify-between">
-              <span>ESTIMATED ARCHITECTURE BRIEF</span>
-              <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+          {/* Generated Scope Summary Box */}
+          <div className="p-3.5 rounded-[var(--radius-card)] bg-[var(--color-paper-deep)] border border-[var(--color-rule)] space-y-1.5 text-xs text-[var(--color-ink-2)]">
+            <div className="text-[var(--color-accent)] font-semibold flex items-center justify-between">
+              <span>Estimated architecture brief</span>
+              <span className="font-mono text-xs px-2 py-0.5 rounded bg-[var(--color-accent-soft)]">
                 {consultationEstimate.hours}
               </span>
             </div>
-            <p className="text-slate-300 text-xs leading-relaxed">
-              <strong>Primary Deliverable:</strong> {consultationEstimate.deliverable}
+            <p className="text-xs leading-relaxed text-[var(--color-muted)]">
+              <strong className="text-[var(--color-ink-2)]">Deliverable:</strong> {consultationEstimate.deliverable}
             </p>
-            <div className="text-[11px] text-slate-400 pt-1 flex flex-wrap items-center justify-between gap-2">
-              <span>Model: {consultationEstimate.effort} • Region: Simcoe County / GTA / Remote</span>
+            <div className="text-[11px] text-[var(--color-muted)] pt-1 flex flex-wrap items-center justify-between gap-2 border-t border-[var(--color-rule)]">
+              <span>Model: {consultationEstimate.effort}</span>
               <button
                 type="button"
                 onClick={handleCopyScope}
-                className="text-cyan-400 hover:text-cyan-300 flex items-center gap-1 underline underline-offset-2"
+                className="text-[var(--color-cool)] hover:underline flex items-center gap-1 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
               >
-                {copiedScope ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
-                <span>{copiedScope ? 'Copied Brief' : 'Copy Brief'}</span>
+                {copiedScope ? <Check className="w-3 h-3 text-[var(--color-accent)]" aria-hidden="true" /> : <Copy className="w-3 h-3" aria-hidden="true" />}
+                <span>{copiedScope ? 'Copied brief' : 'Copy brief'}</span>
               </button>
             </div>
           </div>
         </div>
 
         {/* Right: Direct Dispatch Contact Form */}
-        <div
-          className={`lg:col-span-6 rounded-2xl border p-6 sm:p-8 flex flex-col justify-between ${
-            darkMode ? 'bg-[#0D1320]/95 border-slate-800' : 'bg-white border-slate-200 shadow-sm'
-          }`}
-        >
+        <div className="lg:col-span-6 rounded-[var(--radius-card)] border border-[var(--color-rule)] bg-[var(--color-paper-2)] p-6 flex flex-col justify-between">
           {formSubmitted ? (
-            <div className="my-auto py-12 text-center space-y-4">
-              <div className="w-16 h-16 rounded-2xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/20">
-                <CheckCircle2 className="w-9 h-9" />
+            <div className="my-auto py-8 text-center space-y-3">
+              <div className="w-12 h-12 rounded-[var(--radius-pill)] bg-[var(--color-accent-soft)] border border-[var(--color-rule)] text-[var(--color-accent)] flex items-center justify-center mx-auto">
+                <CheckCircle2 className="w-6 h-6" aria-hidden="true" />
               </div>
-              <h3 className="text-2xl font-bold">Consultation Scope Formatted</h3>
-              <p
-                className={`text-sm max-w-md mx-auto ${
-                  darkMode ? 'text-slate-300' : 'text-slate-600'
-                }`}
-              >
-                Thank you, <strong>{contactForm.name || 'Partner'}</strong>. Your scope for{' '}
-                <span className="text-emerald-400 font-mono">{serviceType}</span> ({scopeScale}) has been formatted
-                for Wisdom Ikhuoria Salami at TDWAS Technologies.
+              <h3 className="text-xl font-bold text-[var(--color-ink)]">Consultation brief logged</h3>
+              <p className="text-xs text-[var(--color-muted)] max-w-sm mx-auto">
+                Your scope for <span className="text-[var(--color-accent)]">{serviceType}</span> ({scopeScale}) has been prepared for Wisdom Ikhuoria Salami at TDWAS Technologies.
               </p>
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 max-w-md mx-auto text-left font-mono text-xs text-slate-300 space-y-1">
+              <div className="p-3 rounded-[var(--radius-card)] bg-[var(--color-paper-deep)] border border-[var(--color-rule)] max-w-sm mx-auto text-left text-xs font-mono text-[var(--color-ink-2)] space-y-1">
                 <div>STATUS: READY FOR DISPATCH</div>
                 <div>PILLAR: {serviceType}</div>
                 <div>TIMELINE: {timelineUrgency}</div>
-                <div>MODULES: {selectedAddons.join(', ') || 'Standard Core'}</div>
                 <div>EMAIL: {contactForm.email || 'consult@tdwas.com'}</div>
               </div>
-              <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+              <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
                 <button
                   onClick={() => setFormSubmitted(false)}
-                  className="px-5 py-2.5 rounded-xl text-xs font-mono font-semibold bg-emerald-500 text-slate-950 hover:bg-emerald-400 active:scale-95"
+                  className="px-4 py-2 rounded-[var(--radius-pill)] text-xs font-semibold bg-[var(--color-accent)] text-[var(--color-accent-ink)] hover:bg-[var(--color-ink)] transition-colors duration-150 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
                 >
-                  Modify Scope or Send Another Inquiry
+                  Modify scope
                 </button>
                 <a
                   href={`mailto:consult@tdwas.com?subject=TDWAS Inquiry: ${encodeURIComponent(
                     serviceType
                   )}&body=${encodeURIComponent(
-                    `Hi Wisdom,\n\nI am contacting you regarding ${serviceType} for ${
+                    `Hi Wisdom,\n\nInquiry regarding ${serviceType} for ${
                       contactForm.organization || 'my organization'
                     }.\n\nScope: ${scopeScale} (${timelineUrgency})\nModules: ${selectedAddons.join(
                       ', '
                     )}\n\nNotes:\n${contactForm.notes}\n\nBest regards,\n${contactForm.name}`
                   )}`}
-                  className="px-5 py-2.5 rounded-xl text-xs font-mono font-semibold bg-cyan-500 text-slate-950 hover:bg-cyan-400 active:scale-95"
+                  className="px-4 py-2 rounded-[var(--radius-pill)] text-xs font-semibold bg-[var(--color-paper)] text-[var(--color-ink)] border border-[var(--color-rule-2)] hover:border-[var(--color-cool)] transition-colors duration-150 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
                 >
-                  Send via Email Client
+                  Send via email
                 </a>
               </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-800/60 pb-4">
+              <div className="flex items-center justify-between border-b border-[var(--color-rule)] pb-3">
                 <div>
-                  <h3 className="text-lg font-bold">2. Dispatch Inquiry to TDWAS Technologies</h3>
-                  <p className={`text-xs mt-0.5 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
-                    Direct executive consultation for Bradford, Barrie, Newmarket, Mississauga & Toronto.
+                  <h3 className="text-base font-bold text-[var(--color-ink)]">2. Dispatch inquiry</h3>
+                  <p className="text-xs text-[var(--color-muted)] mt-0.5">
+                    Direct consultation dispatch to TDWAS Technologies.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="px-2.5 py-1 rounded text-xs font-mono bg-slate-900 text-slate-300 border border-slate-700 hover:border-emerald-400 flex items-center gap-1 active:scale-95"
+                  className="px-2.5 py-1 rounded-[var(--radius-pill)] text-xs font-mono bg-[var(--color-paper)] text-[var(--color-ink-2)] border border-[var(--color-rule)] hover:border-[var(--color-accent)] flex items-center gap-1 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
                   title="Copy email to clipboard"
                 >
                   {copiedEmail ? (
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                    <Check className="w-3.5 h-3.5 text-[var(--color-accent)]" aria-hidden="true" />
                   ) : (
-                    <Copy className="w-3.5 h-3.5" />
+                    <Copy className="w-3.5 h-3.5 text-[var(--color-muted)]" aria-hidden="true" />
                   )}
-                  <span>{copiedEmail ? 'Copied!' : 'consult@tdwas.com'}</span>
+                  <span>{copiedEmail ? 'Copied' : 'consult@tdwas.com'}</span>
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-mono uppercase text-slate-400 mb-1">
-                    Your Name *
+                  <label className="block text-xs font-medium text-[var(--color-muted)] mb-1">
+                    Your name *
                   </label>
                   <input
                     type="text"
@@ -325,16 +296,12 @@ Contact: ${contactForm.name || 'Anonymous'} (${contactForm.email || 'Pending ema
                     value={contactForm.name}
                     onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
                     placeholder="Alex Mercer"
-                    className={`w-full px-3.5 py-2.5 rounded-xl border text-sm outline-none ${
-                      darkMode
-                        ? 'bg-slate-950 border-slate-800 text-slate-100 focus:border-emerald-500'
-                        : 'bg-slate-50 border-slate-300 text-slate-900 focus:border-emerald-600'
-                    }`}
+                    className="w-full px-3 py-2 rounded-[var(--radius-pill)] border border-[var(--color-rule)] bg-[var(--color-paper)] text-sm text-[var(--color-ink)] focus:border-[var(--color-cool)] outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono uppercase text-slate-400 mb-1">
-                    Company / Municipality
+                  <label className="block text-xs font-medium text-[var(--color-muted)] mb-1">
+                    Company or municipality
                   </label>
                   <input
                     type="text"
@@ -343,19 +310,15 @@ Contact: ${contactForm.name || 'Anonymous'} (${contactForm.email || 'Pending ema
                       setContactForm({ ...contactForm, organization: e.target.value })
                     }
                     placeholder="Simcoe Enterprise Corp."
-                    className={`w-full px-3.5 py-2.5 rounded-xl border text-sm outline-none ${
-                      darkMode
-                        ? 'bg-slate-950 border-slate-800 text-slate-100 focus:border-emerald-500'
-                        : 'bg-slate-50 border-slate-300 text-slate-900 focus:border-emerald-600'
-                    }`}
+                    className="w-full px-3 py-2 rounded-[var(--radius-pill)] border border-[var(--color-rule)] bg-[var(--color-paper)] text-sm text-[var(--color-ink)] focus:border-[var(--color-cool)] outline-none"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-mono uppercase text-slate-400 mb-1">
-                    Work Email *
+                  <label className="block text-xs font-medium text-[var(--color-muted)] mb-1">
+                    Work email *
                   </label>
                   <input
                     type="email"
@@ -363,53 +326,41 @@ Contact: ${contactForm.name || 'Anonymous'} (${contactForm.email || 'Pending ema
                     value={contactForm.email}
                     onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
                     placeholder="alex@organization.ca"
-                    className={`w-full px-3.5 py-2.5 rounded-xl border text-sm outline-none ${
-                      darkMode
-                        ? 'bg-slate-950 border-slate-800 text-slate-100 focus:border-emerald-500'
-                        : 'bg-slate-50 border-slate-300 text-slate-900 focus:border-emerald-600'
-                    }`}
+                    className="w-full px-3 py-2 rounded-[var(--radius-pill)] border border-[var(--color-rule)] bg-[var(--color-paper)] text-sm text-[var(--color-ink)] focus:border-[var(--color-cool)] outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono uppercase text-slate-400 mb-1">
+                  <label className="block text-xs font-medium text-[var(--color-muted)] mb-1">
                     Region
                   </label>
                   <input
                     type="text"
                     value={contactForm.location}
                     onChange={(e) => setContactForm({ ...contactForm, location: e.target.value })}
-                    className={`w-full px-3.5 py-2.5 rounded-xl border text-sm outline-none ${
-                      darkMode
-                        ? 'bg-slate-950 border-slate-800 text-slate-100 focus:border-emerald-500'
-                        : 'bg-slate-50 border-slate-300 text-slate-900 focus:border-emerald-600'
-                    }`}
+                    className="w-full px-3 py-2 rounded-[var(--radius-pill)] border border-[var(--color-rule)] bg-[var(--color-paper)] text-sm text-[var(--color-ink)] focus:border-[var(--color-cool)] outline-none"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-mono uppercase text-slate-400 mb-1">
-                  Project Context, GRC Objectives or Technical Requirements
+                <label className="block text-xs font-medium text-[var(--color-muted)] mb-1">
+                  Project context or compliance objectives
                 </label>
                 <textarea
                   rows={3}
                   value={contactForm.notes}
                   onChange={(e) => setContactForm({ ...contactForm, notes: e.target.value })}
-                  placeholder="Describe your compliance goals, infrastructure bottlenecks, or custom AI platform needs..."
-                  className={`w-full px-3.5 py-2.5 rounded-xl border text-sm outline-none resize-none ${
-                    darkMode
-                      ? 'bg-slate-950 border-slate-800 text-slate-100 focus:border-emerald-500'
-                      : 'bg-slate-50 border-slate-300 text-slate-900 focus:border-emerald-600'
-                  }`}
+                  placeholder="Describe your compliance goals, infrastructure bottlenecks, or custom automation requirements..."
+                  className="w-full px-3 py-2 rounded-[var(--radius-card)] border border-[var(--color-rule)] bg-[var(--color-paper)] text-sm text-[var(--color-ink)] focus:border-[var(--color-cool)] outline-none resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 hover:brightness-110 active:scale-98 transition-all shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-[var(--radius-pill)] font-semibold text-xs sm:text-sm bg-[var(--color-accent)] text-[var(--color-accent-ink)] hover:bg-[var(--color-ink)] transition-colors duration-150 flex items-center justify-center gap-2 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] active:opacity-90 disabled:opacity-50"
               >
-                <Send className="w-4 h-4" />
-                <span>Generate & Transmit Consultation Request</span>
+                <Send className="w-4 h-4 text-[var(--color-accent-ink)]" aria-hidden="true" />
+                <span>Transmit request</span>
               </button>
             </form>
           )}

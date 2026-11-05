@@ -14,28 +14,9 @@ import ProjectModal from './components/ProjectModal';
 import ResumeModal from './components/ResumeModal';
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('tdwas_theme');
-      if (saved) return saved === 'dark';
-    }
-    return true;
-  });
-
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [resumeOpen, setResumeOpen] = useState(false);
   const [selectedProjectModal, setSelectedProjectModal] = useState(null);
-
-  // Sync theme with HTML class and local storage
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('tdwas_theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('tdwas_theme', 'light');
-    }
-  }, [darkMode]);
 
   // Global Keyboard shortcuts
   useEffect(() => {
@@ -64,94 +45,82 @@ export default function App() {
   };
 
   return (
-    <div
-      className={`min-h-screen transition-colors duration-300 font-sans selection:bg-emerald-500 selection:text-slate-950 ${
-        darkMode ? 'bg-[#090D16] text-slate-100' : 'bg-slate-50 text-slate-900'
-      }`}
-    >
-      {/* SUBTLE CYBER-EXECUTIVE BACKGROUND GRID & GLOWS */}
+    <div className="min-h-screen bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-[var(--color-accent-ink)]">
+      {/* Structural subtle sheet grid */}
       <div
-        className="fixed inset-0 pointer-events-none z-0 opacity-40 transition-opacity"
+        className="fixed inset-0 pointer-events-none z-0 opacity-20"
         style={{
-          backgroundImage: darkMode
-            ? 'radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.12), transparent 40%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.10), transparent 45%), linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px)'
-            : 'radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.08), transparent 40%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.08), transparent 45%), linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px)',
-          backgroundSize: '100% 100%, 100% 100%, 40px 40px, 40px 40px'
+          backgroundImage:
+            'linear-gradient(to right, var(--color-rule) 1px, transparent 1px), linear-gradient(to bottom, var(--color-rule) 1px, transparent 1px)',
+          backgroundSize: '48px 48px'
         }}
       />
 
-      {/* HEADER WITH TOP STATUS BAR */}
+      {/* Header with status bar */}
       <Header
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
         onOpenTerminal={() => setTerminalOpen(true)}
         onOpenResume={() => setResumeOpen(true)}
         onScrollTo={scrollToSection}
       />
 
-      {/* MAIN CONTENT CONTAINER */}
-      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-28 space-y-28">
-        {/* 1. HERO SECTION */}
+      {/* Main Content Container */}
+      <main className="relative z-10 container pt-6 pb-24 space-y-24">
+        {/* 1. Hero Section */}
         <Hero
-          darkMode={darkMode}
           onOpenResume={() => setResumeOpen(true)}
           onOpenTerminal={() => setTerminalOpen(true)}
           onScrollTo={scrollToSection}
         />
 
-        {/* 2. CORE PILLARS / TDWAS TECHNOLOGIES */}
-        <Pillars darkMode={darkMode} />
+        {/* 2. Core Pillars */}
+        <Pillars />
 
-        {/* 3. FEATURED ECOSYSTEM & TECHNICAL PROJECTS */}
+        {/* 3. Featured Ecosystem & Projects */}
         <Projects
-          darkMode={darkMode}
           onSelectProject={(project) => setSelectedProjectModal(project)}
         />
 
-        {/* 4. INTERACTIVE HOME LAB & INFRASTRUCTURE */}
-        <Homelab darkMode={darkMode} />
+        {/* 4. Interactive Home Lab */}
+        <Homelab />
 
-        {/* 5. INFRASTRUCTURE & TOOLCHAIN MATRIX */}
-        <Skills darkMode={darkMode} />
+        {/* 5. Toolchain Matrix */}
+        <Skills />
 
-        {/* 6. EXPERIENCE & LEADERSHIP TIMELINE */}
+        {/* 6. Professional Timeline */}
         <Timeline
-          darkMode={darkMode}
           onOpenResume={() => setResumeOpen(true)}
         />
 
-        {/* 7. BEYOND THE TERMINAL (BRADFORD LIFE) */}
+        {/* 7. Beyond the Terminal */}
         <BeyondTerminal
-          darkMode={darkMode}
           onOpenTerminal={() => setTerminalOpen(true)}
         />
 
-        {/* 8. CONSULTATION BUILDER & CONTACT */}
-        <ConsultationBuilder darkMode={darkMode} />
+        {/* 8. Consultation Builder */}
+        <ConsultationBuilder />
       </main>
 
-      {/* FOOTER */}
+      {/* Footer */}
       <Footer
-        darkMode={darkMode}
         onOpenTerminal={() => setTerminalOpen(true)}
         onOpenResume={() => setResumeOpen(true)}
       />
 
-      {/* MODAL 1: INTERACTIVE COMMAND PALETTE (CLI) */}
+      {/* Interactive Command Palette Shell (CLI) */}
       <TerminalModal
         isOpen={terminalOpen}
         onClose={() => setTerminalOpen(false)}
         onOpenResume={() => setResumeOpen(true)}
       />
 
-      {/* MODAL 2: PROJECT ARCHITECTURE INSPECTOR */}
+      {/* Project Architecture Inspector */}
       <ProjectModal
         project={selectedProjectModal}
         onClose={() => setSelectedProjectModal(null)}
         onInquire={() => scrollToSection('contact')}
       />
 
-      {/* MODAL 3: EXECUTIVE RESUME & CAPABILITY DOC */}
+      {/* Executive Resume & Capability Statement */}
       <ResumeModal
         isOpen={resumeOpen}
         onClose={() => setResumeOpen(false)}

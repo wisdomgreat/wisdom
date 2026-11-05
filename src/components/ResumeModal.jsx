@@ -10,27 +10,27 @@ export default function ResumeModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-      <div className="w-full max-w-4xl rounded-2xl bg-[#0B101C] border border-slate-700 text-slate-100 shadow-2xl overflow-hidden my-6 animate-in fade-in zoom-in-95 duration-150">
+    <div className="fixed inset-0 z-50 bg-black/75 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      <div className="w-full max-w-4xl rounded-[var(--radius-card)] bg-[var(--color-paper-2)] border border-[var(--color-rule-2)] text-[var(--color-ink)] overflow-hidden my-6">
         {/* Top Action Bar */}
-        <div className="px-6 py-4 bg-[#070B12] border-b border-slate-800 flex flex-wrap items-center justify-between gap-3 no-print">
+        <div className="px-6 py-3.5 bg-[var(--color-paper)] border-b border-[var(--color-rule)] flex flex-wrap items-center justify-between gap-3 no-print">
           <div className="flex items-center gap-2">
-            <FileText className="w-4 h-4 text-emerald-400" />
-            <span className="font-mono text-xs font-semibold">
-              EXECUTIVE RESUME & TDWAS TECHNOLOGIES CAPABILITY BRIEF
+            <FileText className="w-4 h-4 text-[var(--color-accent)]" aria-hidden="true" />
+            <span className="text-xs font-semibold text-[var(--color-ink)]">
+              Executive resume and capability brief
             </span>
           </div>
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrint}
-              className="px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-500 text-slate-950 hover:bg-emerald-400 flex items-center gap-1.5 active:scale-95 transition-all shadow-sm"
+              className="px-3.5 py-1.5 rounded-[var(--radius-pill)] text-xs font-semibold bg-[var(--color-accent)] text-[var(--color-accent-ink)] hover:bg-[var(--color-ink)] flex items-center gap-1.5 transition-colors duration-150 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
             >
-              <Printer className="w-3.5 h-3.5" />
-              <span>Print / Save PDF</span>
+              <Printer className="w-3.5 h-3.5 text-[var(--color-accent-ink)]" aria-hidden="true" />
+              <span>Print or save PDF</span>
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+              className="p-1 rounded text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:bg-[var(--color-paper-2)] transition-colors duration-150"
               aria-label="Close resume"
             >
               <X className="w-4 h-4" />
@@ -39,37 +39,37 @@ export default function ResumeModal({ isOpen, onClose }) {
         </div>
 
         {/* Printable Resume Body */}
-        <div className="p-6 sm:p-10 space-y-6 max-h-[82vh] overflow-y-auto print:max-h-none print:overflow-visible print:p-0 print:text-black">
+        <div className="p-6 sm:p-8 space-y-6 max-h-[82vh] overflow-y-auto print:max-h-none print:overflow-visible print:p-0 print:text-black">
           {/* Header */}
-          <div className="border-b border-slate-800 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="border-b border-[var(--color-rule)] pb-5 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <h2 className="text-3xl font-extrabold text-white">Wisdom Ikhuoria Salami</h2>
-              <p className="text-emerald-400 font-mono text-xs sm:text-sm mt-1">
-                Principal Consultant @ TDWAS Technologies | Cybersecurity & GRC | Hybrid Cloud & Full-Stack AI Architect
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-ink)]">Wisdom Ikhuoria Salami</h2>
+              <p className="text-[var(--color-accent)] text-xs sm:text-sm mt-1">
+                Principal Consultant at TDWAS Technologies: Cybersecurity, GRC, Hybrid Cloud and AI Architect
               </p>
             </div>
-            <div className="text-xs font-mono text-slate-400 space-y-1 md:text-right">
-              <div className="flex items-center md:justify-end gap-1">
-                <MapPin className="w-3 h-3 text-cyan-400" />
-                <span>Bradford West Gwillimbury, Simcoe County, ON</span>
+            <div className="text-xs text-[var(--color-muted)] space-y-1 md:text-right">
+              <div className="flex items-center md:justify-end gap-1.5">
+                <MapPin className="w-3 h-3 text-[var(--color-cool)]" aria-hidden="true" />
+                <span>Bradford West Gwillimbury, Ontario</span>
               </div>
-              <div className="flex items-center md:justify-end gap-1">
-                <Globe className="w-3 h-3 text-emerald-400" />
-                <span>tdwas.com • bwglife.ca • simcoeconnect.ca</span>
+              <div className="flex items-center md:justify-end gap-1.5 font-mono">
+                <Globe className="w-3 h-3 text-[var(--color-accent)]" aria-hidden="true" />
+                <span>tdwas.com, bwglife.ca, simcoeconnect.ca</span>
               </div>
-              <div className="flex items-center md:justify-end gap-1">
-                <Mail className="w-3 h-3 text-cyan-400" />
+              <div className="flex items-center md:justify-end gap-1.5 font-mono">
+                <Mail className="w-3 h-3 text-[var(--color-cool)]" aria-hidden="true" />
                 <span>consult@tdwas.com</span>
               </div>
             </div>
           </div>
 
           {/* Executive Summary */}
-          <div className="space-y-2">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">
-              Executive Summary
+          <div className="space-y-1.5">
+            <h3 className="text-xs font-semibold text-[var(--color-cool)]">
+              Executive summary
             </h3>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-[var(--color-muted)] leading-relaxed">
               Multidisciplinary Technology Professional and Systems Architect combining 7+ years of enterprise Risk
               Operations (KYC, AML, Enhanced Due Diligence, Global Sanctions Screening) with full-stack AI software
               engineering and hybrid cloud infrastructure administration. Founder of TDWAS Technologies, Former Lead
@@ -80,30 +80,30 @@ export default function ResumeModal({ isOpen, onClose }) {
           </div>
 
           {/* Core Competencies Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800">
-              <div className="text-xs font-mono text-emerald-400 font-bold mb-1">
-                CYBERSECURITY & GRC
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="p-3.5 rounded-[var(--radius-card)] bg-[var(--color-paper)] border border-[var(--color-rule)]">
+              <div className="text-xs font-semibold text-[var(--color-accent)] mb-1">
+                Cybersecurity & GRC
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-[var(--color-muted)] leading-relaxed">
                 Governance, Risk & Compliance, KYC/AML Due Diligence, Regulatory Sanction Screening, IAM/RBAC, Zero
                 Trust Architecture, Audit Readiness.
               </p>
             </div>
-            <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800">
-              <div className="text-xs font-mono text-cyan-400 font-bold mb-1">
-                HYBRID INFRASTRUCTURE
+            <div className="p-3.5 rounded-[var(--radius-card)] bg-[var(--color-paper)] border border-[var(--color-rule)]">
+              <div className="text-xs font-semibold text-[var(--color-cool)] mb-1">
+                Hybrid infrastructure
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-[var(--color-muted)] leading-relaxed">
                 AWS, Microsoft Azure, Proxmox VE, VMware, Windows Server & SCCM, Ubuntu Linux CLI, Docker,
                 Cloudflare Zero Trust Tunnels.
               </p>
             </div>
-            <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800">
-              <div className="text-xs font-mono text-emerald-400 font-bold mb-1">
-                FULL-STACK AI & DEV
+            <div className="p-3.5 rounded-[var(--radius-card)] bg-[var(--color-paper)] border border-[var(--color-rule)]">
+              <div className="text-xs font-semibold text-[var(--color-accent)] mb-1">
+                Full-stack AI & dev
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-[var(--color-muted)] leading-relaxed">
                 Python, React, Vite, Tailwind CSS, Node.js, Supabase, n8n Webhooks, Browserbase, Google AI Studio,
                 Algorithmic Telemetry Systems.
               </p>
@@ -112,19 +112,19 @@ export default function ResumeModal({ isOpen, onClose }) {
 
           {/* Experience Summary */}
           <div className="space-y-3">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">
-              Professional Experience & Fellowships
+            <h3 className="text-xs font-semibold text-[var(--color-cool)]">
+              Professional experience and fellowships
             </h3>
             <div className="space-y-3">
               {EXPERIENCE_TIMELINE.map((e, i) => (
-                <div key={i} className="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                <div key={i} className="p-3.5 rounded-[var(--radius-card)] bg-[var(--color-paper)] border border-[var(--color-rule)]">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="font-bold text-sm text-white">
-                      {e.role} — <span className="text-emerald-400">{e.organization}</span>
+                    <span className="font-bold text-sm text-[var(--color-ink)]">
+                      {e.role} / <span className="text-[var(--color-accent)]">{e.organization}</span>
                     </span>
-                    <span className="text-xs font-mono text-slate-400">{e.period}</span>
+                    <span className="text-xs text-[var(--color-muted)]">{e.period}</span>
                   </div>
-                  <ul className="mt-2 space-y-1 text-xs text-slate-300 list-disc list-inside">
+                  <ul className="mt-2 space-y-1 text-xs text-[var(--color-muted)] list-disc list-inside">
                     {e.highlights.map((h, j) => (
                       <li key={j}>{h}</li>
                     ))}
@@ -136,14 +136,14 @@ export default function ResumeModal({ isOpen, onClose }) {
 
           {/* Selected Production Platforms */}
           <div className="space-y-2">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">
-              Selected Production Ventures & Technical Systems
+            <h3 className="text-xs font-semibold text-[var(--color-cool)]">
+              Selected production ventures and technical systems
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
               {PROJECTS_DATA.slice(0, 8).map((p) => (
-                <div key={p.id} className="p-3 rounded-lg bg-slate-950/80 border border-slate-800">
-                  <span className="font-bold text-emerald-400">{p.title}: </span>
-                  <span className="text-slate-300">{p.description}</span>
+                <div key={p.id} className="p-2.5 rounded-[var(--radius-card)] bg-[var(--color-paper)] border border-[var(--color-rule)]">
+                  <span className="font-semibold text-[var(--color-accent)]">{p.title}: </span>
+                  <span className="text-[var(--color-muted)]">{p.description}</span>
                 </div>
               ))}
             </div>

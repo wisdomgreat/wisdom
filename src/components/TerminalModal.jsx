@@ -9,11 +9,11 @@ export default function TerminalModal({ isOpen, onClose, onOpenResume }) {
   const [terminalHistory, setTerminalHistory] = useState([
     {
       type: 'system',
-      text: 'TDWAS OS v4.2.0 — Wisdom Ikhuoria Salami Executive Shell initialized.'
+      text: 'TDWAS OS v4.2.0: Wisdom Ikhuoria Salami Executive Shell initialized.'
     },
     {
       type: 'system',
-      text: 'Location: Bradford West Gwillimbury, Simcoe County, ON | Type "help" or click a command chip below.'
+      text: 'Location: Bradford West Gwillimbury, Simcoe County, ON. Type "help" or click a command below.'
     }
   ]);
 
@@ -35,7 +35,6 @@ export default function TerminalModal({ isOpen, onClose, onOpenResume }) {
     const cmd = rawCmd.trim().toLowerCase();
     if (!cmd) return;
 
-    // Track command history for Up/Down arrows
     setCommandHistory((prev) => [...prev, rawCmd]);
     setHistoryPointer(-1);
 
@@ -46,15 +45,15 @@ export default function TerminalModal({ isOpen, onClose, onOpenResume }) {
         newEntries.push({
           type: 'output',
           text: `Available Executive Shell Commands:
-  whoami     → Executive profile, credentials & regional footprint
-  skills     → Core GRC, Cloud Infrastructure & Full-Stack AI toolchain
-  projects   → List live production platforms & validated builds
-  homelab    → Inspect Proxmox VE, SCCM & Cloudflare Zero Trust topology
-  garden     → [Easter Egg] Bradford agronomy & Kratky hydroponics status
-  contact    → Display direct TDWAS Technologies dispatch channels
-  resume     → Open printable Executive Capability Statement & Resume
-  ping       → Ping the Cloudflare Zero Trust gateway & Proxmox cluster
-  clear      → Clear terminal output buffer`
+  whoami     -> Executive profile, credentials and regional footprint
+  skills     -> Core GRC, Cloud Infrastructure and Full-Stack AI toolchain
+  projects   -> List live production platforms and validated builds
+  homelab    -> Inspect Proxmox VE, SCCM and Cloudflare Zero Trust topology
+  garden     -> [Easter Egg] Bradford agronomy and Kratky hydroponics status
+  contact    -> Display direct TDWAS Technologies dispatch channels
+  resume     -> Open printable Executive Capability Statement and Resume
+  ping       -> Ping the Cloudflare Zero Trust gateway and Proxmox cluster
+  clear      -> Clear terminal output buffer`
         });
         break;
 
@@ -62,10 +61,10 @@ export default function TerminalModal({ isOpen, onClose, onOpenResume }) {
         newEntries.push({
           type: 'output',
           text: `WISDOM IKHUORIA SALAMI
-Role: Principal Consultant @ TDWAS Technologies (tdwas.com)
-Specializations: Cybersecurity & GRC | Hybrid Cloud & Proxmox Systems | Full-Stack AI Builder
-Track Record: 7+ Years in Risk Operations (KYC/AML/Sanctions) • Former Lead Programming Instructor @ Correlation One • Handshake AI Fellow • Half Baked START Founder.
-Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, Barrie, Newmarket, Mississauga & Etobicoke).`
+Role: Principal Consultant at TDWAS Technologies (tdwas.com)
+Specializations: Cybersecurity & GRC, Hybrid Cloud & Proxmox Systems, Full-Stack AI Builder
+Track Record: 7+ Years in Risk Operations (KYC/AML/Sanctions), Former Lead Programming Instructor at Correlation One, Handshake AI Fellow, Half Baked START Founder.
+Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, Barrie, Newmarket, Mississauga and Etobicoke).`
         });
         break;
 
@@ -82,16 +81,16 @@ Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, B
         newEntries.push({
           type: 'output',
           text: `LIVE PLATFORMS & TECHNICAL BUILDS:
-  • TDWAS Technologies (tdwas.com) — IT, Cloud & GRC Consultancy
-  • BWG Life (bwglife.ca) & Simcoe Connect (simcoeconnect.ca) — Hyperlocal Directories
-  • BradfordFarmer — Simcoe County AgTech, Grants & CRA T2042 Tax Suite
-  • IleOja (ileoja.ca) & MyTechRodeo (mytechrodeo.com) — Marketplace & Tech Insights
-  • Neon Breach — Validated Handshake AI Cybersecurity Telemetry Project
-  • KiddoChecker — Azure Cloud Child Security & SMS Attendance System
-  • Web Audio & Canvas Studio Recorder — Dual-Channel VU & Screen Capture
-  • Bybit Algorithmic Crypto Bot — Python + Telegram Telemetry Engine
-  • Interest-Only Loan Generator — LegalTech Amortization & PDF Contract Suite
-  • JobAutomation & Lead Engine — Autonomous n8n + Browserbase Agentic Graphs`
+  - TDWAS Technologies (tdwas.com): IT, Cloud and GRC Consultancy
+  - BWG Life (bwglife.ca) and Simcoe Connect (simcoeconnect.ca): Hyperlocal Directories
+  - BradfordFarmer: Simcoe County AgTech, Grants and CRA T2042 Tax Suite
+  - IleOja (ileoja.ca) and MyTechRodeo (mytechrodeo.com): Marketplace and Tech Insights
+  - Neon Breach: Validated Handshake AI Cybersecurity Telemetry Project
+  - KiddoChecker: Azure Cloud Child Security and SMS Attendance System
+  - Web Audio & Canvas Studio Recorder: Dual-Channel VU and Screen Capture
+  - Bybit Algorithmic Crypto Bot: Python and Telegram Telemetry Engine
+  - Interest-Only Loan Generator: LegalTech Amortization and PDF Contract Suite
+  - JobAutomation & Lead Engine: Autonomous n8n and Browserbase Agentic Graphs`
         });
         break;
 
@@ -110,11 +109,11 @@ Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, B
       case 'garden':
         newEntries.push({
           type: 'highlight',
-          text: `🌱 BRADFORD BACKYARD AGRONOMY & KRATKY HYDROPONICS TELEMETRY:
+          text: `BRADFORD BACKYARD AGRONOMY & KRATKY HYDROPONICS TELEMETRY:
   Location: Bradford West Gwillimbury, ON (Zone 5b)
-  Soil & Container Crops: Sweet Corn, Heirloom Tomatoes, Yams, Peppers & Potted Apples
+  Soil & Container Crops: Sweet Corn, Heirloom Tomatoes, Yams, Peppers, Potted Apples
   Hydroponic Rig: DIY Passive Kratky Method (Zero-pump nutrient reservoirs, optimal EC/pH)
-  Creative Audio/Video: Official Creator on Pocket FM | 4K Production on Panasonic HC-X1500`
+  Creative Audio/Video: Official Creator on Pocket FM; 4K Production on Panasonic HC-X1500`
         });
         break;
 
@@ -136,8 +135,8 @@ Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, B
           text: `TDWAS TECHNOLOGIES DISPATCH:
   Web Portal  : https://tdwas.com
   Email       : consult@tdwas.com
-  Ecosystem   : bwglife.ca | simcoeconnect.ca | ileoja.ca | mytechrodeo.com
-  Service Area: Bradford West Gwillimbury, Simcoe County, Barrie, Newmarket, Mississauga, Etobicoke & Toronto
+  Ecosystem   : bwglife.ca, simcoeconnect.ca, ileoja.ca, mytechrodeo.com
+  Service Area: Bradford West Gwillimbury, Simcoe County, Barrie, Newmarket, Mississauga, Etobicoke and Toronto
   Action      : Scroll down to the Consultation Builder to dispatch a formatted project brief.`
         });
         break;
@@ -150,7 +149,7 @@ Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, B
         setTimeout(() => {
           onClose();
           onOpenResume();
-        }, 350);
+        }, 300);
         break;
 
       case 'clear':
@@ -196,19 +195,19 @@ Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, B
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4">
-      <div className="w-full max-w-3xl rounded-2xl bg-[#070B12] border border-slate-700 shadow-2xl overflow-hidden flex flex-col max-h-[85vh] animate-in fade-in zoom-in-95 duration-150">
+    <div className="fixed inset-0 z-50 bg-black/75 flex items-center justify-center p-3 sm:p-4">
+      <div className="w-full max-w-3xl rounded-[var(--radius-card)] bg-[var(--color-paper-deep)] border border-[var(--color-rule-2)] overflow-hidden flex flex-col max-h-[85vh]">
         {/* Terminal Title Bar */}
-        <div className="px-4 py-3 bg-[#0D1322] border-b border-slate-800 flex items-center justify-between">
+        <div className="px-4 py-2.5 bg-[var(--color-paper-2)] border-b border-[var(--color-rule)] flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Terminal className="w-4 h-4 text-emerald-400" />
-            <span className="font-mono text-xs text-slate-200 font-semibold truncate">
-              wisdom@tdwas.com — Interactive Executive Command Shell
+            <Terminal className="w-4 h-4 text-[var(--color-accent)]" aria-hidden="true" />
+            <span className="font-mono text-xs text-[var(--color-ink)] font-semibold truncate">
+              wisdom@tdwas.com: interactive executive shell
             </span>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="p-1 rounded text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:bg-[var(--color-paper)] transition-colors duration-150"
             aria-label="Close terminal"
           >
             <X className="w-4 h-4" />
@@ -216,14 +215,14 @@ Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, B
         </div>
 
         {/* Quick Clickable Command Chips */}
-        <div className="px-4 py-2 bg-slate-950 border-b border-slate-800/80 flex flex-wrap items-center gap-1.5">
-          <span className="text-[11px] font-mono text-slate-400 mr-1">Quick Run:</span>
+        <div className="px-4 py-2 bg-[var(--color-paper-deep)] border-b border-[var(--color-rule)] flex flex-wrap items-center gap-1.5">
+          <span className="text-[11px] text-[var(--color-muted)] mr-1">Quick run:</span>
           {['whoami', 'skills', 'projects', 'homelab', 'garden', 'ping', 'contact', 'resume', 'clear'].map(
             (cmd) => (
               <button
                 key={cmd}
                 onClick={() => executeCommand(cmd)}
-                className="px-2.5 py-1 rounded text-xs font-mono bg-slate-900 hover:bg-emerald-500/20 text-emerald-400 border border-slate-800 hover:border-emerald-500/40 transition-colors"
+                className="px-2 py-0.5 rounded-[var(--radius-pill)] text-xs font-mono bg-[var(--color-paper-2)] hover:bg-[var(--color-accent-soft)] text-[var(--color-cool)] hover:text-[var(--color-accent)] border border-[var(--color-rule)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
               >
                 {cmd}
               </button>
@@ -232,20 +231,20 @@ Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, B
         </div>
 
         {/* Terminal Output History */}
-        <div className="p-4 sm:p-5 overflow-y-auto font-mono text-xs space-y-3 flex-1">
+        <div className="p-4 sm:p-5 overflow-y-auto font-mono text-xs space-y-3 flex-1 bg-[var(--color-paper-deep)]">
           {terminalHistory.map((item, idx) => (
             <div
               key={idx}
               className={`whitespace-pre-wrap leading-relaxed ${
                 item.type === 'input'
-                  ? 'text-cyan-400 font-bold'
+                  ? 'text-[var(--color-cool)] font-bold'
                   : item.type === 'error'
-                  ? 'text-rose-400'
+                  ? 'text-[var(--color-error)]'
                   : item.type === 'highlight'
-                  ? 'p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300'
+                  ? 'p-3 rounded-[var(--radius-card)] bg-[var(--color-accent-soft)] border border-[var(--color-rule)] text-[var(--color-ink)]'
                   : item.type === 'system'
-                  ? 'text-slate-400'
-                  : 'text-slate-200'
+                  ? 'text-[var(--color-muted)]'
+                  : 'text-[var(--color-ink-2)]'
               }`}
             >
               {item.text}
@@ -260,9 +259,9 @@ Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, B
             e.preventDefault();
             executeCommand(terminalInput);
           }}
-          className="px-4 py-3 bg-[#0B101B] border-t border-slate-800 flex items-center gap-2 font-mono text-xs"
+          className="px-4 py-3 bg-[var(--color-paper-2)] border-t border-[var(--color-rule)] flex items-center gap-2 font-mono text-xs"
         >
-          <span className="text-emerald-400 font-bold shrink-0">wisdom@tdwas-core:~$</span>
+          <span className="text-[var(--color-accent)] font-bold shrink-0">wisdom@tdwas-core:~$</span>
           <input
             ref={terminalInputRef}
             type="text"
@@ -270,14 +269,14 @@ Base of Operations: Bradford West Gwillimbury, Simcoe County, ON (Serving GTA, B
             onChange={(e) => setTerminalInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Type a command (whoami, skills, projects, homelab, garden, contact)..."
-            className="w-full bg-transparent text-slate-100 outline-none placeholder:text-slate-600"
+            className="w-full bg-transparent text-[var(--color-ink)] outline-none placeholder:text-[var(--color-muted)]"
           />
           <button
             type="submit"
-            className="px-3 py-1 rounded bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400 active:scale-95 transition-all flex items-center gap-1"
+            className="px-2.5 py-1 rounded-[var(--radius-pill)] bg-[var(--color-accent)] text-[var(--color-accent-ink)] font-semibold hover:bg-[var(--color-ink)] transition-colors duration-150 flex items-center gap-1 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
           >
             <span>Run</span>
-            <CornerDownLeft className="w-3 h-3" />
+            <CornerDownLeft className="w-3 h-3 text-[var(--color-accent-ink)]" aria-hidden="true" />
           </button>
         </form>
       </div>

@@ -1,18 +1,16 @@
 import React from 'react';
-import { Cpu } from 'lucide-react';
 import { SKILL_MATRIX } from '../data/portfolioData';
 
-export default function Skills({ darkMode }) {
+export default function Skills() {
   return (
     <section id="skills" className="scroll-mt-24 space-y-8">
-      <div>
-        <div className="text-xs font-mono uppercase tracking-widest text-cyan-400 flex items-center gap-2">
-          <Cpu className="w-4 h-4" />
-          <span>Verified Technical Capabilities</span>
-        </div>
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mt-2">
-          Toolchain, Security & Engineering Matrix
+      <div className="border-b border-[var(--color-rule)] pb-4">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-ink)]">
+          Toolchain and Governance Matrix
         </h2>
+        <p className="text-sm text-[var(--color-muted)] mt-1">
+          Cybersecurity governance, hybrid cloud virtualization, and full-stack software competencies.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -21,46 +19,32 @@ export default function Skills({ darkMode }) {
           return (
             <div
               key={group.category}
-              className={`p-1.5 rounded-[1.5rem] border transition-all ${
-                darkMode
-                  ? 'bg-slate-900/40 border-slate-800/80 hover:border-slate-700'
-                  : 'bg-slate-100/60 border-slate-200 hover:border-slate-300 shadow-sm'
-              }`}
+              className="rounded-[var(--radius-card)] border border-[var(--color-rule)] bg-[var(--color-paper-2)] p-6 space-y-6"
             >
-              <div
-                className={`h-full rounded-[1.25rem] p-6 space-y-6 ${
-                  darkMode ? 'bg-[#0D1320]' : 'bg-white'
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
-                    <GroupIcon className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-bold text-lg leading-snug">{group.category}</h3>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-[var(--radius-card)] bg-[var(--color-paper)] border border-[var(--color-rule)] text-[var(--color-accent)] flex items-center justify-center">
+                  <GroupIcon className="w-5 h-5" aria-hidden="true" />
                 </div>
+                <h3 className="font-bold text-base leading-snug text-[var(--color-ink)]">{group.category}</h3>
+              </div>
 
-                <div className="space-y-4">
-                  {group.items.map((skill) => (
-                    <div key={skill.name} className="space-y-1.5">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="font-medium">{skill.name}</span>
-                        <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
-                          {skill.tag}
-                        </span>
-                      </div>
-                      <div
-                        className={`w-full h-2 rounded-full overflow-hidden ${
-                          darkMode ? 'bg-slate-900' : 'bg-slate-100'
-                        }`}
-                      >
-                        <div
-                          className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 transition-all duration-700"
-                          style={{ width: `${skill.level}%` }}
-                        />
-                      </div>
+              <div className="space-y-4">
+                {group.items.map((skill) => (
+                  <div key={skill.name} className="space-y-1.5">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-medium text-[var(--color-ink-2)]">{skill.name}</span>
+                      <span className="text-[11px] px-2 py-0.5 rounded-[var(--radius-pill)] bg-[var(--color-paper)] text-[var(--color-cool)] border border-[var(--color-rule)]">
+                        {skill.tag}
+                      </span>
                     </div>
-                  ))}
-                </div>
+                    <div className="w-full h-1.5 rounded-full overflow-hidden bg-[var(--color-paper)]">
+                      <div
+                        className="h-full w-full rounded-full bg-[var(--color-accent)] origin-left transition-transform duration-300 motion-reduce:transition-none"
+                        style={{ transform: `scaleX(${skill.level / 100})` }}
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           );

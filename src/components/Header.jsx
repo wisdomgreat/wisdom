@@ -4,8 +4,6 @@ import {
   MapPin,
   FileText,
   Command,
-  Sun,
-  Moon,
   ArrowUpRight,
   Menu,
   X,
@@ -19,8 +17,6 @@ import {
 } from 'lucide-react';
 
 export default function Header({
-  darkMode,
-  setDarkMode,
   onOpenTerminal,
   onOpenResume,
   onScrollTo
@@ -62,119 +58,88 @@ export default function Header({
 
   return (
     <>
-      {/* TOP TELEMETRY STATUS BAR */}
-      <div
-        className={`relative z-40 border-b text-xs font-mono transition-colors ${
-          darkMode
-            ? 'bg-[#060911]/95 border-slate-800/80 text-slate-400'
-            : 'bg-slate-900 text-slate-300 border-slate-800'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2">
+      {/* Top telemetry status bar */}
+      <div className="relative z-40 border-b border-[var(--color-rule)] bg-[var(--color-paper-deep)] text-xs text-[var(--color-muted)]">
+        <div className="container py-2 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 text-emerald-400 font-semibold tracking-wide">
+            <span className="inline-flex items-center gap-2 font-medium text-[var(--color-accent)]">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-accent)] opacity-75 motion-reduce:hidden"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-accent)]"></span>
               </span>
-              TDWAS.COM CORE ONLINE
+              <span>Core online</span>
             </span>
-            <span className="hidden sm:inline text-slate-600">|</span>
-            <span className="hidden sm:inline-flex items-center gap-1 text-[11px] text-slate-400">
-              <Activity className="w-3 h-3 text-cyan-400" />
+            <span className="hidden sm:inline text-[var(--color-rule-2)]">/</span>
+            <span className="hidden sm:inline-flex items-center gap-1 font-mono text-[11px] text-[var(--color-cool)]">
+              <Activity className="w-3 h-3 text-[var(--color-cool)]" aria-hidden="true" />
               <span>{currentTime || 'EST'}</span>
             </span>
-            <span className="hidden md:inline text-slate-600">|</span>
-            <span className="hidden md:inline-flex items-center gap-1 text-slate-300">
-              <MapPin className="w-3.5 h-3.5 text-cyan-400" />
-              Bradford West Gwillimbury, ON (Serving GTA & Simcoe)
+            <span className="hidden md:inline text-[var(--color-rule-2)]">/</span>
+            <span className="hidden md:inline-flex items-center gap-1.5 text-[var(--color-ink-2)]">
+              <MapPin className="w-3 h-3 text-[var(--color-muted)]" aria-hidden="true" />
+              <span>Bradford West Gwillimbury, Ontario</span>
             </span>
           </div>
 
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-3">
             <button
               onClick={onOpenTerminal}
-              className="inline-flex items-center gap-1.5 text-cyan-400 hover:text-cyan-300 transition-colors"
+              className="inline-flex items-center gap-1.5 text-[var(--color-cool)] hover:text-[var(--color-ink)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
               title="Interactive Terminal Shell"
             >
-              <Terminal className="w-3.5 h-3.5" />
-              <span className="hidden xs:inline">Run Shell</span>
-              <kbd className="px-1.5 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300 border border-slate-700 font-sans">
+              <Terminal className="w-3.5 h-3.5" aria-hidden="true" />
+              <span className="hidden xs:inline">Shell</span>
+              <kbd className="px-1.5 py-0.5 text-[10px] rounded bg-[var(--color-paper-2)] text-[var(--color-muted)] border border-[var(--color-rule)] font-mono">
                 Ctrl+K
               </kbd>
             </button>
-            <span className="text-slate-600">|</span>
+            <span className="text-[var(--color-rule-2)]">/</span>
             <button
               onClick={onOpenResume}
-              className="inline-flex items-center gap-1 text-slate-300 hover:text-emerald-400 transition-colors"
+              className="inline-flex items-center gap-1.5 text-[var(--color-ink-2)] hover:text-[var(--color-accent)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
               title="View Printable Capability Statement"
             >
-              <FileText className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Capability Brief</span>
+              <FileText className="w-3.5 h-3.5 text-[var(--color-accent)]" aria-hidden="true" />
+              <span>Capability brief</span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* STICKY EXECUTIVE NAVIGATION */}
-      <header
-        className={`sticky top-0 z-30 backdrop-blur-xl border-b transition-colors ${
-          darkMode
-            ? 'bg-[#090D16]/90 border-slate-800/80 shadow-lg shadow-black/20'
-            : 'bg-white/90 border-slate-200/90 shadow-sm'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+      {/* Sticky header navigation */}
+      <header className="sticky top-0 z-30 border-b border-[var(--color-rule)] bg-[var(--color-paper)]">
+        <div className="container h-16 sm:h-20 flex items-center justify-between gap-4">
           {/* Brand Identity */}
           <div
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-3 cursor-pointer group"
           >
-            <div className="relative">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-emerald-500 via-teal-400 to-cyan-500 p-[1.5px] shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-all duration-300">
-                <div
-                  className={`w-full h-full rounded-[14px] flex items-center justify-center font-mono font-extrabold text-sm ${
-                    darkMode ? 'bg-[#090D16] text-emerald-400' : 'bg-slate-950 text-emerald-400'
-                  }`}
-                >
-                  WS
-                </div>
-              </div>
-              <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-[#090D16] flex items-center justify-center">
-                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-              </div>
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[var(--radius-card)] bg-[var(--color-paper-2)] border border-[var(--color-rule-2)] flex items-center justify-center font-bold text-sm text-[var(--color-accent)]">
+              WS
             </div>
 
             <div>
               <div className="font-bold tracking-tight text-sm sm:text-base flex items-center gap-2">
-                <span className="group-hover:text-emerald-400 transition-colors">
+                <span className="text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors duration-150">
                   Wisdom Ikhuoria Salami
                 </span>
-                <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                  TDWAS.COM
+                <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-[var(--radius-pill)] text-xs text-[var(--color-muted)] border border-[var(--color-rule)]">
+                  TDWAS
                 </span>
               </div>
-              <p
-                className={`text-xs font-mono truncate ${
-                  darkMode ? 'text-slate-400' : 'text-slate-500'
-                }`}
-              >
-                GRC & Risk • Hybrid Cloud • Full-Stack AI
+              <p className="text-xs text-[var(--color-muted)] truncate">
+                GRC, hybrid cloud and full-stack AI architecture
               </p>
             </div>
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-sm font-medium">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-sm">
             {navLinks.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 hover:text-emerald-400 ${
-                  darkMode
-                    ? 'text-slate-300 hover:bg-slate-800/60'
-                    : 'text-slate-700 hover:bg-slate-100'
-                }`}
+                className="px-3 py-1.5 rounded-[var(--radius-pill)] text-xs text-[var(--color-ink-2)] hover:text-[var(--color-ink)] hover:bg-[var(--color-paper-2)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
               >
                 {item.label}
               </button>
@@ -182,49 +147,27 @@ export default function Header({
           </nav>
 
           {/* Quick Actions */}
-          <div className="flex items-center gap-2 sm:gap-2.5">
+          <div className="flex items-center gap-2 sm:gap-3">
             <button
               onClick={onOpenTerminal}
               title="Open Command Shell (Ctrl+K)"
-              className={`p-2 sm:p-2.5 rounded-xl border transition-all ${
-                darkMode
-                  ? 'bg-slate-900/90 border-slate-800 text-slate-300 hover:border-cyan-500/50 hover:text-cyan-400 hover:bg-slate-800'
-                  : 'bg-slate-100 border-slate-200 text-slate-700 hover:border-cyan-500 hover:bg-slate-200'
-              }`}
+              className="p-2 sm:p-2.5 rounded-[var(--radius-pill)] border border-[var(--color-rule)] text-[var(--color-ink-2)] hover:border-[var(--color-cool)] hover:text-[var(--color-cool)] bg-[var(--color-paper-2)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
             >
-              <Command className="w-4 h-4" />
-            </button>
-
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-              className={`p-2 sm:p-2.5 rounded-xl border transition-all ${
-                darkMode
-                  ? 'bg-slate-900/90 border-slate-800 text-amber-400 hover:border-amber-500/40 hover:bg-slate-800'
-                  : 'bg-slate-100 border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-200'
-              }`}
-            >
-              {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              <Command className="w-4 h-4" aria-hidden="true" />
             </button>
 
             <button
               onClick={() => onScrollTo('contact')}
-              className="group hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 hover:brightness-110 active:scale-98 transition-all shadow-lg shadow-emerald-500/20"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-[var(--radius-pill)] text-xs font-semibold bg-[var(--color-accent)] text-[var(--color-accent-ink)] hover:bg-[var(--color-ink)] transition-colors duration-150 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
             >
-              <span>Book Consultation</span>
-              <span className="w-5 h-5 rounded-full bg-slate-950/15 flex items-center justify-center transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                <ArrowUpRight className="w-3.5 h-3.5 text-slate-950" />
-              </span>
+              <span>Book consultation</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[var(--color-accent-ink)]" aria-hidden="true" />
             </button>
 
             {/* Mobile Menu Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`lg:hidden p-2 rounded-xl border transition-all ${
-                darkMode
-                  ? 'bg-slate-900/90 border-slate-800 text-slate-300'
-                  : 'bg-slate-100 border-slate-200 text-slate-700'
-              }`}
+              className="lg:hidden p-2 rounded-[var(--radius-pill)] border border-[var(--color-rule)] text-[var(--color-ink-2)] bg-[var(--color-paper-2)] transition-colors duration-150"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -234,11 +177,7 @@ export default function Header({
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div
-            className={`lg:hidden border-b px-4 py-5 space-y-3 transition-colors ${
-              darkMode ? 'bg-[#090D16]/98 border-slate-800' : 'bg-white border-slate-200'
-            }`}
-          >
+          <div className="lg:hidden border-b border-[var(--color-rule)] bg-[var(--color-paper-2)] px-4 py-4 space-y-3">
             <div className="grid grid-cols-2 gap-2">
               {navLinks.map((item) => {
                 const Icon = item.icon;
@@ -246,13 +185,9 @@ export default function Header({
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    className={`flex items-center gap-2 p-2.5 rounded-xl text-xs font-mono border text-left transition-colors ${
-                      darkMode
-                        ? 'bg-slate-900/80 border-slate-800 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/40'
-                        : 'bg-slate-50 border-slate-200 text-slate-700 hover:text-emerald-600'
-                    }`}
+                    className="flex items-center gap-2 p-2.5 rounded-[var(--radius-pill)] text-xs border border-[var(--color-rule)] text-left text-[var(--color-ink-2)] hover:text-[var(--color-accent)] bg-[var(--color-paper)] transition-colors duration-150"
                   >
-                    <Icon className="w-3.5 h-3.5 text-emerald-400" />
+                    <Icon className="w-3.5 h-3.5 text-[var(--color-accent)]" aria-hidden="true" />
                     <span>{item.label}</span>
                   </button>
                 );
@@ -265,10 +200,10 @@ export default function Header({
                   onScrollTo('contact');
                   setMobileMenuOpen(false);
                 }}
-                className="w-full py-3 rounded-xl font-semibold text-xs bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 flex items-center justify-center gap-1.5"
+                className="w-full py-2.5 rounded-[var(--radius-pill)] font-semibold text-xs bg-[var(--color-accent)] text-[var(--color-accent-ink)] flex items-center justify-center gap-1.5 whitespace-nowrap"
               >
-                <span>Book Consultation</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <span>Book consultation</span>
+                <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
               </button>
 
               <button
@@ -276,14 +211,10 @@ export default function Header({
                   onOpenResume();
                   setMobileMenuOpen(false);
                 }}
-                className={`w-full py-2.5 rounded-xl text-xs font-mono border flex items-center justify-center gap-2 ${
-                  darkMode
-                    ? 'bg-slate-900 border-slate-800 text-slate-300'
-                    : 'bg-slate-100 border-slate-200 text-slate-700'
-                }`}
+                className="w-full py-2.5 rounded-[var(--radius-pill)] text-xs border border-[var(--color-rule)] text-[var(--color-ink-2)] bg-[var(--color-paper)] flex items-center justify-center gap-2 whitespace-nowrap"
               >
-                <FileText className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Executive Capability Statement</span>
+                <FileText className="w-3.5 h-3.5 text-[var(--color-accent)]" aria-hidden="true" />
+                <span>Capability statement</span>
               </button>
             </div>
           </div>

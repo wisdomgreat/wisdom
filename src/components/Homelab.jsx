@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import {
-  Network,
   ChevronRight,
-  Activity,
   ShieldCheck,
   Terminal
 } from 'lucide-react';
 import { HOMELAB_NODES } from '../data/portfolioData';
 
-export default function Homelab({ darkMode }) {
+export default function Homelab() {
   const [selectedLabNode, setSelectedLabNode] = useState(HOMELAB_NODES[0]);
   const [pingStatus, setPingStatus] = useState(null);
   const [pinging, setPinging] = useState(false);
@@ -19,32 +17,27 @@ export default function Homelab({ darkMode }) {
     setTimeout(() => {
       setPinging(false);
       setPingStatus(
-        `SUCCESS: 4 packets transmitted, 4 received, 0% packet loss, RTT avg = ${node.latency || '0.8ms'}`
+        `SUCCESS: 4 packets transmitted, 4 received, 0% loss, RTT avg = ${node.latency || '0.8ms'}`
       );
     }, 450);
   };
 
   return (
     <section id="homelab" className="scroll-mt-24 space-y-8">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[var(--color-rule)] pb-4">
         <div>
-          <div className="text-xs font-mono uppercase tracking-widest text-emerald-400 flex items-center gap-2">
-            <Network className="w-4 h-4" />
-            <span>Interactive Hybrid Topology Explorer</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mt-2">
-            Home Lab & Enterprise Cloud Architecture
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-ink)]">
+            Hybrid Lab and Cloud Architecture
           </h2>
+          <p className="text-sm text-[var(--color-muted)] mt-1">
+            Proxmox VE virtualization, Windows Server SCCM, Docker automation and Cloudflare Zero Trust.
+          </p>
         </div>
-        <p className={`max-w-md text-sm ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-          Click any infrastructure node below to inspect how Proxmox VE, Windows Server SCCM, Ubuntu Docker hosts,
-          and Cloudflare Zero Trust tunnels interconnect.
-        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
         {/* Left: Interactive Topology Nodes */}
-        <div className="lg:col-span-5 space-y-3">
+        <div className="lg:col-span-5 space-y-2.5">
           {HOMELAB_NODES.map((node, index) => {
             const isSelected = selectedLabNode.id === node.id;
             return (
@@ -54,54 +47,35 @@ export default function Homelab({ darkMode }) {
                   setSelectedLabNode(node);
                   setPingStatus(null);
                 }}
-                className={`w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between gap-4 active:scale-99 ${
+                className={`w-full text-left p-3.5 rounded-[var(--radius-card)] border transition-colors duration-150 flex items-center justify-between gap-3 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] ${
                   isSelected
-                    ? 'bg-gradient-to-r from-emerald-500/15 to-cyan-500/10 border-emerald-500 shadow-lg shadow-emerald-950/20'
-                    : darkMode
-                    ? 'bg-[#0D1320]/80 border-slate-800/90 hover:border-slate-700 hover:bg-slate-900/60'
-                    : 'bg-white border-slate-200 hover:border-slate-300 shadow-sm'
+                    ? 'bg-[var(--color-paper-3)] border-[var(--color-accent)]'
+                    : 'bg-[var(--color-paper-2)] border-[var(--color-rule)] hover:border-[var(--color-rule-2)]'
                 }`}
               >
-                <div className="flex items-center gap-3.5 min-w-0">
+                <div className="flex items-center gap-3 min-w-0">
                   <div
-                    className={`w-10 h-10 rounded-xl font-mono text-xs font-bold flex items-center justify-center shrink-0 border ${
+                    className={`w-8 h-8 rounded-[var(--radius-pill)] font-mono text-xs font-semibold flex items-center justify-center shrink-0 border ${
                       isSelected
-                        ? 'bg-emerald-500 text-slate-950 border-emerald-400'
-                        : darkMode
-                        ? 'bg-slate-900 text-slate-400 border-slate-800'
-                        : 'bg-slate-100 text-slate-700 border-slate-200'
+                        ? 'bg-[var(--color-accent)] text-[var(--color-accent-ink)] border-[var(--color-accent)]'
+                        : 'bg-[var(--color-paper)] text-[var(--color-muted)] border-[var(--color-rule)]'
                     }`}
                   >
                     0{index + 1}
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[11px] font-mono text-emerald-400">{node.zone}</div>
-                    <div className="font-bold text-sm sm:text-base truncate">{node.name}</div>
-                    <div
-                      className={`text-xs truncate ${
-                        darkMode ? 'text-slate-400' : 'text-slate-500'
-                      }`}
-                    >
-                      {node.role}
-                    </div>
+                    <div className="text-[11px] text-[var(--color-cool)]">{node.zone}</div>
+                    <div className="font-semibold text-sm truncate text-[var(--color-ink)]">{node.name}</div>
+                    <div className="text-xs truncate text-[var(--color-muted)]">{node.role}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  <span
-                    className={`hidden sm:inline text-[10px] font-mono px-2 py-0.5 rounded border ${
-                      isSelected
-                        ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
-                        : darkMode
-                        ? 'bg-slate-950 text-slate-400 border-slate-800'
-                        : 'bg-slate-100 text-slate-600 border-slate-200'
-                    }`}
-                  >
+                  <span className="hidden sm:inline text-xs font-mono px-2 py-0.5 rounded-[var(--radius-pill)] border border-[var(--color-rule)] bg-[var(--color-paper)] text-[var(--color-muted)]">
                     {node.latency}
                   </span>
                   <ChevronRight
-                    className={`w-5 h-5 transition-transform ${
-                      isSelected ? 'text-emerald-400 translate-x-1' : 'text-slate-500'
-                    }`}
+                    className={`w-4 h-4 text-[var(--color-muted)] ${isSelected ? 'text-[var(--color-accent)]' : ''}`}
+                    aria-hidden="true"
                   />
                 </div>
               </button>
@@ -111,82 +85,70 @@ export default function Homelab({ darkMode }) {
 
         {/* Right: Node Telemetry Inspector */}
         <div className="lg:col-span-7">
-          <div
-            className={`h-full rounded-2xl border p-6 sm:p-8 flex flex-col justify-between ${
-              darkMode
-                ? 'bg-[#0C121E] border-slate-800 text-slate-100'
-                : 'bg-slate-900 text-slate-100 border-slate-800 shadow-xl'
-            }`}
-          >
-            <div className="space-y-6">
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <div className="h-full rounded-[var(--radius-card)] border border-[var(--color-rule-2)] bg-[var(--color-paper-2)] p-6 sm:p-7 flex flex-col justify-between">
+            <div className="space-y-5">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--color-rule)] pb-4">
                 <div>
-                  <span className="text-xs font-mono text-cyan-400 uppercase tracking-wider">
+                  <span className="text-xs text-[var(--color-cool)]">
                     {selectedLabNode.zone}
                   </span>
-                  <h3 className="text-2xl font-bold text-white mt-1">{selectedLabNode.name}</h3>
+                  <h3 className="text-xl font-bold text-[var(--color-ink)] mt-0.5">{selectedLabNode.name}</h3>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    {selectedLabNode.status}
-                  </span>
-                </div>
+                <span className="px-2.5 py-1 rounded-[var(--radius-pill)] text-xs text-[var(--color-accent)] bg-[var(--color-accent-soft)] border border-[var(--color-rule)] flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
+                  {selectedLabNode.status}
+                </span>
               </div>
 
               {/* Hardware / Network Metadata */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
-                <div className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <div className="text-slate-400 text-[10px] uppercase tracking-wider font-semibold">
-                    NETWORK / SUBNET IDENTIFIER
-                  </div>
-                  <div className="text-emerald-400 font-semibold mt-1">{selectedLabNode.ip}</div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div className="p-3 rounded-[var(--radius-card)] bg-[var(--color-paper)] border border-[var(--color-rule)]">
+                  <div className="text-[11px] text-[var(--color-muted)] font-medium">Network identifier</div>
+                  <div className="text-[var(--color-ink)] font-mono font-medium mt-1">{selectedLabNode.ip}</div>
                 </div>
-                <div className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
-                  <div className="text-slate-400 text-[10px] uppercase tracking-wider font-semibold">
-                    PRIMARY ROLE & LATENCY
-                  </div>
-                  <div className="text-cyan-400 font-semibold mt-1 flex items-center justify-between">
-                    <span>{selectedLabNode.role}</span>
-                    <span className="text-xs text-slate-400">~{selectedLabNode.latency}</span>
+                <div className="p-3 rounded-[var(--radius-card)] bg-[var(--color-paper)] border border-[var(--color-rule)]">
+                  <div className="text-[11px] text-[var(--color-muted)] font-medium">Role and latency</div>
+                  <div className="text-[var(--color-ink)] font-medium mt-1 flex items-center justify-between">
+                    <span className="truncate">{selectedLabNode.role}</span>
+                    <span className="font-mono text-xs text-[var(--color-cool)]">~{selectedLabNode.latency}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80 font-mono text-xs text-slate-300">
-                <span className="text-slate-400 font-semibold">STACK PROFILE: </span>
+              <div className="p-3 rounded-[var(--radius-card)] bg-[var(--color-paper-deep)] border border-[var(--color-rule)] text-xs text-[var(--color-ink-2)] font-mono">
+                <span className="text-[var(--color-muted)]">Profile: </span>
                 {selectedLabNode.specs}
               </div>
 
-              <p className="text-sm text-slate-300 leading-relaxed">{selectedLabNode.description}</p>
+              <p className="text-sm text-[var(--color-muted)] leading-relaxed">{selectedLabNode.description}</p>
 
-              {/* Running Daemons / Services */}
-              <div className="space-y-2.5">
-                <div className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold flex items-center justify-between">
-                  <span>Active Daemons, Controls & Workloads</span>
+              {/* Active Services */}
+              <div className="space-y-2">
+                <div className="text-xs text-[var(--color-muted)] font-medium flex items-center justify-between">
+                  <span>Active daemons and workloads</span>
                   <button
                     onClick={() => handlePing(selectedLabNode)}
                     disabled={pinging}
-                    className="text-xs text-emerald-400 hover:text-emerald-300 underline font-mono flex items-center gap-1"
+                    className="text-xs text-[var(--color-cool)] hover:underline flex items-center gap-1 font-mono focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
                   >
-                    <Terminal className="w-3 h-3" />
-                    <span>{pinging ? 'Pinging...' : 'Send ICMP Ping'}</span>
+                    <Terminal className="w-3 h-3" aria-hidden="true" />
+                    <span>{pinging ? 'Pinging...' : 'Send ping'}</span>
                   </button>
                 </div>
 
                 {pingStatus && (
-                  <div className="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono">
+                  <div className="p-2.5 rounded-[var(--radius-card)] bg-[var(--color-paper-deep)] border border-[var(--color-rule)] text-[var(--color-accent)] text-xs font-mono">
                     {pingStatus}
                   </div>
                 )}
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {selectedLabNode.services.map((srv) => (
                     <div
                       key={srv}
-                      className="p-3 rounded-xl bg-slate-950/80 border border-slate-800/90 flex items-center gap-2.5 text-xs text-slate-200 font-mono"
+                      className="p-2.5 rounded-[var(--radius-pill)] bg-[var(--color-paper)] border border-[var(--color-rule)] flex items-center gap-2 text-xs text-[var(--color-ink-2)]"
                     >
-                      <Activity className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] shrink-0" />
                       <span className="truncate">{srv}</span>
                     </div>
                   ))}
@@ -195,15 +157,13 @@ export default function Homelab({ darkMode }) {
             </div>
 
             {/* Visual Data Flow Bar */}
-            <div className="mt-8 pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-slate-400">
+            <div className="mt-6 pt-4 border-t border-[var(--color-rule)] flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--color-muted)]">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>
-                  DATA PATH: Public Client → Cloudflare Edge → Encrypted Tunnel → Proxmox/Ubuntu
-                </span>
+                <ShieldCheck className="w-4 h-4 text-[var(--color-accent)] shrink-0" aria-hidden="true" />
+                <span>Data path: Public client to Cloudflare Edge to encrypted tunnel</span>
               </div>
-              <span className="text-emerald-400 font-semibold">
-                0 Inbound Firewall Ports Exposed
+              <span className="text-[var(--color-accent)] font-medium">
+                0 exposed inbound ports
               </span>
             </div>
           </div>

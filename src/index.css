@@ -1,37 +1,50 @@
+/* Hallmark · shape: settled · genre: modern-minimal · theme: custom · redesign: full · job: book · idea: "Principal GRC, hybrid infrastructure, and full-stack AI consultancy portfolio for Wisdom Ikhuoria Salami." · vibe: "graphite hairline telemetry precision restrained executive"
+ * paper: oklch(14.5% 0.008 240) · accent: oklch(78% 0.16 150) · display: Plus Jakarta Sans · body: Plus Jakarta Sans · hero: Settled · nav: Bar · footer: Bar · imagery: none · signature: Telemetry Console
+ * axes: dark/grotesk-sans/chromatic-green · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 · weakest: V, tightened to strict hairline console architecture */
+
 @import "tailwindcss";
+@import "./tokens.css";
+@import "./base.css" layer(base);
+
+button, a {
+  white-space: nowrap;
+}
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-body);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
   }
 
   code, kbd, samp, pre {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-family: var(--font-outlier);
   }
 }
 
-/* Custom scrollbars */
+/* Custom scrollbars matching theme tokens */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--color-paper-deep);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(51, 65, 85, 0.8);
-  border-radius: 4px;
+  background: var(--color-rule-2);
+  border-radius: var(--radius-pill);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(16, 185, 129, 0.6);
+  background: var(--color-muted);
 }
 
 /* Printable capability statement styling */
 @media print {
   body {
-    background: white !important;
-    color: black !important;
+    background: var(--color-print-paper) !important;
+    color: var(--color-print-ink) !important;
   }
   .no-print {
     display: none !important;
