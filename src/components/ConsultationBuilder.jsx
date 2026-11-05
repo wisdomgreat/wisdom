@@ -109,6 +109,9 @@ Contact: ${contactForm.name || 'Anonymous'} (${contactForm.email || 'Pending ema
         {/* Left: say hello */}
         <div className="lg:col-span-5 space-y-8">
           <div className="space-y-3">
+            <div className="font-mono text-[11px] text-[var(--color-muted)]">
+              09 // START A DIALOGUE & PROJECT SCOPE
+            </div>
             <h2 className="text-[clamp(2rem,3.2vw,2.75rem)] leading-[1.1] text-[var(--color-ink)]">Say hello</h2>
             <p className="text-[1.0625rem] leading-relaxed text-[var(--color-muted)] max-w-[26rem]">
               Tell me a little about the engagement. The form writes a scope brief you can copy or send.

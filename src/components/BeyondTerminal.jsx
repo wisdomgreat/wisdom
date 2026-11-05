@@ -9,10 +9,13 @@ export default function BeyondTerminal({ onOpenTerminal }) {
     <section id="personal" className="scroll-mt-24 space-y-8">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[var(--color-rule)] pb-4">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-ink)]">
-            Beyond the Terminal
+          <div className="font-mono text-[11px] text-[var(--color-muted)] mb-1">
+            08 // BEYOND THE TERMINAL
+          </div>
+          <h2 className="text-[clamp(1.75rem,2.8vw,2.5rem)] leading-[1.15] font-medium tracking-[-0.03em] text-[var(--color-ink)]">
+            Beyond the terminal
           </h2>
-          <p className="text-sm text-[var(--color-muted)] mt-1">
+          <p className="text-sm text-[var(--color-muted)] mt-1 max-w-xl">
             Backyard agronomy, Kratky hydroponics, audio storytelling, 4K video and automotive diagnostics.
           </p>
         </div>

@@ -12,6 +12,9 @@ export default function AdvisoryScopes({ onSelectScope }) {
     <section id="advisory" className="band band-bone scroll-mt-20">
       <div className="container space-y-10">
         <div className="max-w-[34rem] space-y-3">
+          <div className="font-mono text-[11px] text-[var(--color-muted)]">
+            03 // ADVISORY & ENGINEERING SCOPES
+          </div>
           <h2 className="text-[clamp(2rem,3.2vw,2.75rem)] leading-[1.1] text-[var(--color-ink)]">What I can do for you</h2>
           <p className="text-[1.0625rem] leading-relaxed text-[var(--color-muted)]">
             Most engagements are one of these three. If yours is not, ask anyway.

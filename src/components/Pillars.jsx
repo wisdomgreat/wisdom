@@ -7,24 +7,27 @@ export default function Pillars() {
     <section id="pillars" className="scroll-mt-24 space-y-8">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[var(--color-rule)] pb-4">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-ink)]">
-            Four Pillars of Delivery
+          <div className="font-mono text-[11px] text-[var(--color-muted)] mb-1">
+            01 // ARCHITECTURAL PILLARS
+          </div>
+          <h2 className="text-[clamp(1.75rem,2.8vw,2.5rem)] leading-[1.15] font-medium tracking-[-0.03em] text-[var(--color-ink)]">
+            Four pillars of delivery
           </h2>
-          <p className="text-sm text-[var(--color-muted)] mt-1">
+          <p className="text-sm text-[var(--color-muted)] mt-1 max-w-xl">
             Enterprise risk governance, bare-metal systems engineering, and modern full-stack AI execution.
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {CORE_PILLARS.map((pillar) => {
           const IconComponent = pillar.icon;
           const isEmerald = pillar.accent === 'emerald';
 
           return (
-            <div
+            <article
               key={pillar.id}
-              className="rounded-[var(--radius-card)] border border-[var(--color-rule)] bg-[var(--color-paper-2)] p-6 sm:p-7 flex flex-col justify-between hover:border-[var(--color-rule-2)] transition-colors duration-150"
+              className="rounded-[var(--radius-card)] border border-[var(--color-rule)] bg-[var(--color-paper-2)] p-6 sm:p-7 flex flex-col justify-between shadow-[var(--shadow-card)] hover:border-[var(--color-rule-2)] transition-colors duration-150"
             >
               <div className="space-y-4">
                 {/* Header Row */}
@@ -38,14 +41,14 @@ export default function Pillars() {
                   >
                     <IconComponent className="w-5 h-5" aria-hidden="true" />
                   </div>
-                  <span className="text-xs px-2.5 py-1 rounded-[var(--radius-pill)] border border-[var(--color-rule)] bg-[var(--color-paper)] text-[var(--color-muted)]">
+                  <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-[var(--radius-pill)] border border-[var(--color-rule)] bg-[var(--color-paper)] text-[var(--color-muted)]">
                     {pillar.subtitle}
                   </span>
                 </div>
 
                 {/* Title & Description */}
                 <div>
-                  <h3 className="text-xl font-bold tracking-tight text-[var(--color-ink)]">
+                  <h3 className="text-[1.25rem] font-medium tracking-[-0.02em] text-[var(--color-ink)]">
                     {pillar.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
@@ -58,7 +61,7 @@ export default function Pillars() {
                   {pillar.metrics.map((m) => (
                     <div
                       key={m}
-                      className="px-3 py-2 rounded-[var(--radius-pill)] text-xs border border-[var(--color-rule)] bg-[var(--color-paper)] text-[var(--color-ink-2)] flex items-center gap-1.5"
+                      className="px-2.5 py-1.5 rounded-[var(--radius-pill)] text-xs border border-[var(--color-rule)] bg-[var(--color-paper)] text-[var(--color-ink-2)] flex items-center gap-1.5"
                     >
                       <CheckCircle2 className="w-3.5 h-3.5 text-[var(--color-accent)] shrink-0" aria-hidden="true" />
                       <span className="truncate">{m}</span>
@@ -68,17 +71,17 @@ export default function Pillars() {
               </div>
 
               {/* Tech Tags */}
-              <div className="flex flex-wrap gap-1.5 pt-6 mt-6 border-t border-[var(--color-rule)]">
+              <div className="flex flex-wrap gap-1.5 pt-5 mt-5 border-t border-[var(--color-rule)]">
                 {pillar.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2 py-0.5 rounded-[var(--radius-pill)] text-xs border border-[var(--color-rule)] bg-[var(--color-paper)] text-[var(--color-muted)]"
+                    className="px-2 py-0.5 rounded-[var(--radius-pill)] font-mono text-[11px] border border-[var(--color-rule)] bg-[var(--color-paper)] text-[var(--color-muted)]"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-            </div>
+            </article>
           );
         })}
       </div>

@@ -26,10 +26,13 @@ export default function Homelab() {
     <section id="homelab" className="scroll-mt-24 space-y-8">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[var(--color-rule)] pb-4">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-ink)]">
-            Hybrid Lab and Cloud Architecture
+          <div className="font-mono text-[11px] text-[var(--color-muted)] mb-1">
+            05 // HYBRID LAB & CLOUD ARCHITECTURE
+          </div>
+          <h2 className="text-[clamp(1.75rem,2.8vw,2.5rem)] leading-[1.15] font-medium tracking-[-0.03em] text-[var(--color-ink)]">
+            Hybrid lab and cloud architecture
           </h2>
-          <p className="text-sm text-[var(--color-muted)] mt-1">
+          <p className="text-sm text-[var(--color-muted)] mt-1 max-w-xl">
             Proxmox VE virtualization, Windows Server SCCM, Docker automation and Cloudflare Zero Trust.
           </p>
         </div>

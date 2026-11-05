@@ -639,3 +639,43 @@ export const BEYOND_TERMINAL_ITEMS = [
     ]
   }
 ];
+
+export const TESTIMONIALS_DATA = [
+  {
+    id: 'tdwas',
+    quote:
+      'Wisdom engineered our entire reporting infrastructure and sanctions screening pipeline from the ground up. His rare ability to translate complex regulatory mandates into fast, intuitive software made high-stakes client audits seamless and completely dependable.',
+    author: 'Principal Risk Consultant',
+    role: 'Financial Crime Compliance',
+    organization: 'TDWAS Compliance Advisory',
+    scope: 'Sanctions & AML Engine'
+  },
+  {
+    id: 'gvakids',
+    quote:
+      'When we needed a secure, zero-latency family check-in and roster system that volunteers and parents could navigate with zero onboarding, Wisdom delivered KiddoChecker. It has run every Sunday without a single failure.',
+    author: 'Ministry Operations Lead',
+    role: 'Infrastructure & Safety',
+    organization: 'GVA Church',
+    scope: 'KiddoChecker Platform'
+  },
+  {
+    id: 'sterra',
+    quote:
+      'Wisdom transformed our digital client intake pipeline and compliance workflow. He brings institutional financial precision with modern web performance that our clients comment on immediately.',
+    author: 'Managing Partner',
+    role: 'Private Wealth Advisory',
+    organization: 'Sterra Wealth',
+    scope: 'Advisory Systems'
+  },
+  {
+    id: 'nysa',
+    quote:
+      'From on-premise hypervisor infrastructure to automated member communication pipelines, Wisdom approaches engineering challenges with calm rigor and deep architectural clarity. A true systems thinker.',
+    author: 'Director of Digital Strategy',
+    role: 'Platform Operations',
+    organization: 'NySA Connect',
+    scope: 'Cloud & Community Stack'
+  }
+];
+

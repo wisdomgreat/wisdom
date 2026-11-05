@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Pillars from './components/Pillars';
 import Projects from './components/Projects';
 import AdvisoryScopes from './components/AdvisoryScopes';
+import Testimonials from './components/Testimonials';
 import Homelab from './components/Homelab';
 import Skills from './components/Skills';
 import Timeline from './components/Timeline';
@@ -79,6 +80,9 @@ export default function App() {
             scrollToSection('contact');
           }}
         />
+
+        {/* 4b. Collaborator Endorsements & Testimonials */}
+        <Testimonials />
 
         {/* 5. Interactive Home Lab */}
         <Homelab />

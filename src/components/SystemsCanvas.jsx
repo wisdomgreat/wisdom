@@ -55,15 +55,22 @@ export default function SystemsCanvas({ projects, onSelectProject, onShowList })
   const onPointerDown = (e) => {
     if (e.pointerType === 'mouse' && e.button !== 0) return;
     if (e.target.closest('[data-control]')) return;
-    setDragging(true);
     drag.current = { x: e.clientX, y: e.clientY, ox: view.x, oy: view.y, moved: false };
-    viewportRef.current?.setPointerCapture(e.pointerId);
+    // Only capture pointer for mouse right away; for touch, we let the user scroll vertically unless they drag
+    if (e.pointerType !== 'touch') {
+      setDragging(true);
+      viewportRef.current?.setPointerCapture(e.pointerId);
+    }
   };
 
   const onPointerMove = (e) => {
-    if (!dragging) return;
     const dx = e.clientX - drag.current.x;
     const dy = e.clientY - drag.current.y;
+    if (!dragging && (Math.abs(dx) > 6 || Math.abs(dy) > 6)) {
+      setDragging(true);
+      viewportRef.current?.setPointerCapture(e.pointerId);
+    }
+    if (!dragging) return;
     if (Math.abs(dx) > 4 || Math.abs(dy) > 4) drag.current.moved = true;
     setView((v) => ({
       ...v,
